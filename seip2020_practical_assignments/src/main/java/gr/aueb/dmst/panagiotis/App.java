@@ -1,4 +1,4 @@
-package com.mycompany.app;
+package gr.aueb.dmst.panagiotis;
 
 /**
  * Hello world!

@@ -1,4 +1,4 @@
-package com.mycompany.app;
+package jar;
 
 /**
  * Hello world!
