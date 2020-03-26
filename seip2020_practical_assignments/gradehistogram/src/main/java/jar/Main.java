@@ -1,8 +1,9 @@
-import org.jfree.chart.*;
+//import org.jfree.chart.*;
 import java.util.ArrayList;
 
-public class XYLineChart {
-
+public class Main {
+    
+    /***
     public void generateChart(ArrayList<Integer> grades) {
         XYSeriesCollection dataset = new XYSeriesCollection();
         XYSeries data = new XYSeries("random values");
@@ -23,29 +24,19 @@ public class XYLineChart {
         frame.pack();
         frame.setVisible(true);
     } 
-
-
-
-
-
-
-
-
-
-
-
-
+    ***/
 
     public static void main(String[] args) throws Exception {
         ArrayList<Integer> grades = new ArrayList<Integer>();
-        HistogramGenerator hg = new HistogramGenerator();
+
+        HistogramGenerator hg = new HistogramGenerator(); 
+        grades = hg.gradesFromFileToArray();            
+        System.out.println(grades);
         
-        grades = hg.gradesFromFileToArray();    
-        
-        //System.out.println(grades);
-        
-        XYLineChart chart = new XYLineChart();
-        chart.generateChart(grades);
+        //System.out.println("Hello, World!");
+
+        //XYLineChart chart = new XYLineChart();
+        //chart.generateChart(grades);
 
         
     }

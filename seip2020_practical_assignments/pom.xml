@@ -11,6 +11,11 @@
   <description>
     Let's say this is the parent project that contains gradehistogram.
   </description>
+
+  <properties>
+    <maven.compiler.source>1.8</maven.compiler.source>
+    <maven.compiler.target>1.8</maven.compiler.target>
+  </properties>
  
   <dependencies>
     <dependency>
