@@ -13,12 +13,13 @@
   <description>
     Takes as input a file with students' grades and generates its histogram.
   </description>
+  <packaging>jar</packaging>
   
   <properties>
     <maven.compiler.source>1.8</maven.compiler.source>
     <maven.compiler.target>1.8</maven.compiler.target>
   </properties>
-
+ 
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
@@ -35,14 +36,12 @@
 
   <build>
     <plugins>
-      <!-- let's say this is the fat jar -->
       <plugin>
-        <groupId>org.jfree</groupId>
-        <artifactId>jfreechart</artifactId>
+        <artifactId>maven-assembly-plugin</artifactId>
         <configuration>
           <archive>
             <manifest>
-              <mainClass>gradehistogram.Main</mainClass>
+              <mainClass>gradehisrogram.Main</mainClass>
             </manifest>
           </archive>
           <descriptorRefs>
