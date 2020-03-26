@@ -33,13 +33,9 @@ public class JFreeChartXYLineChart {
     }
 
     public static void main(String[] args) {
-        /**
-        String fileName = args[0];
-        String url = "./" + fileName;        
+        //String fileName = args[0];
         HistogramGenerator hg = new HistogramGenerator();
         //double[] grades = hg.readGradesFromFile(fileName);
-        **/
-       
         double[] grades = {3, 4, 5, 7, 0, 9, 6, 2, 0, 0, 2, 8, 0, 0, 4};
         generateChart(grades);
     }
