@@ -7,7 +7,7 @@
   <version>1.0-SNAPSHOT</version>
   <packaging>pom</packaging>
   <name>seip2020_practical_assignments</name>
-  <description>TODO</description>
+  <description>parent-project</description>
     
   <properties>    
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
