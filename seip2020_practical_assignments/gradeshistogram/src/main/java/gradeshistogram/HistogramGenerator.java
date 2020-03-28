@@ -12,9 +12,8 @@ import org.jfree.data.statistics.HistogramType;
 import java.util.ArrayList;
 
 /**
- * <h1>Histogram Generator</h1>
  * HistogramGenerator implements an application that takes as input,
- * from Java CLI Arguments, a path of .txt file containing numbers and 
+ * from Java CLI Arguments, a path of .txt file containing numbers and
  * generates its Frequency Histogram.
  * 
  * @author Panagiotis Varouktsis
@@ -25,11 +24,12 @@ import java.util.ArrayList;
 public class HistogramGenerator {
 
     /**
-     * This method takes the argument given, which is the path of a specific
-     * file, reads its numbers as Strings, adds them in an ArrayList<Double>
-     * and then converts the ArrayList<Double> into a Double[] array.    
+     * This method receives the argument given by the user from main method,
+     * which is the path of a specific file, reads its numbers as Strings, adds
+     * them in an ArrayList&#60;Double&#62; and then converts the
+     * ArrayList&#60;Double&#62; into a Double[] (array).
      * 
-     * @param filePath
+     * @param filePath The URL of the file
      * @return double[] This returns the numbers that are going to be processed
      * and presented in the histogram.
      */
