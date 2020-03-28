@@ -1,6 +1,6 @@
 # Histogram Generator
 
-**This is a Maven Project that takes as input (from Java CLI Argument) a path of a .txt file which contains numbers (eg. students' grades), but only one number per line and produces its Frequency Histogram based on [JFreeChart](http://www.jfree.org/jfreechart/).**
+**This is a Maven Project that receives from Java CLI argument parser a path of a .txt file which contains numbers, only one number per line (eg. students' grades), and produces its Frequency Histogram based on [JFreeChart](http://www.jfree.org/jfreechart/).**
   
 ## Getting Started
 

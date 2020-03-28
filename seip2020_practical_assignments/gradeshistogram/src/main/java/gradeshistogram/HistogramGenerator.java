@@ -26,11 +26,11 @@ public class HistogramGenerator {
     /**
      * This method receives the argument given by the user from main method,
      * which is the path of a specific file, reads its numbers as Strings, adds
-     * them in an ArrayList&#60;Double&#62; and then converts the
-     * ArrayList&#60;Double&#62; into a Double[] (array).
+     * them in an ArrayList with type Double and then converts it into a 
+     * Double array.
      * 
-     * @param filePath The URL of the file
-     * @return double[] This returns the numbers that are going to be processed
+     * @param filePath The URL of the file.
+     * @return double[] Returns the numbers that are going to be processed
      * and presented in the histogram.
      */
     public static double[] readGradesFromFile(String filePath) {               
@@ -55,10 +55,10 @@ public class HistogramGenerator {
     }
 
     /**
-     * This is the method that takes the numbers and generates the Frequency
-     * Histogram.
+     * This is the method that receives the numbers and generates the frequency
+     * histogram chart.
      * 
-     * @param gradesArray Numbers of the given file
+     * @param gradesArray Numbers of the file.
      */
     public static void generateChart(double[] gradesArray) {
         HistogramDataset dataset = new HistogramDataset();
@@ -85,8 +85,9 @@ public class HistogramGenerator {
     }
 
     /**
-     * This is the main method which takes the path from the user and makes
-     * use of the other two methods, readGradesFromFile and generateChart.
+     * This is the main method which takes the file's path from the user and makes
+     * use of the other two methods, readGradesFromFile and generateChart, to 
+     * finally produce the chart.
      * 
      * @param args Takes the path of .txt file the user wants to produce its
      * histogram.
