@@ -43,13 +43,23 @@
         <filtering>true</filtering>
       </resource>
     </resources>
-    <plugins>
+ 
+   <plugins>
+      <!--
+      <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+        <configuration>
+          <executable>true</executable>
+        </configuration>
+      </plugin>
+      -->   
       <plugin>
         <artifactId>maven-assembly-plugin</artifactId>
         <configuration>
           <archive>
             <manifest>
-              <mainClass>gradeshistogram.JFreeChartXYLineChart</mainClass>
+              <mainClass>gradeshistogram.HistogramGenerator</mainClass>
             </manifest>
           </archive>
           <descriptorRefs>
