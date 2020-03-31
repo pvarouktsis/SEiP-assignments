@@ -7,14 +7,14 @@ import org.jfree.chart.JFreeChart;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartFrame;
 import org.jfree.chart.plot.PlotOrientation;
-import org.jfree.data.statistics.HistogramDataset;
-import org.jfree.data.statistics.HistogramType;
+import org.jfree.data.xy.XYSeriesCollection;
+import org.jfree.data.xy.XYSeries;
+import java.util.Collections;
 import java.util.ArrayList;
 
 /**
- * HistogramGenerator implements an application that takes as input,
- * from Java CLI Arguments, a path of .txt file containing numbers and
- * generates its Frequency Histogram.
+ * HistogramGenerator implements an application that takes as argument the path 
+ * of .txt file containing integer numbers and generates its frequency histogram.
  * 
  * @author Panagiotis Varouktsis
  * @version 1.0.0
@@ -24,46 +24,54 @@ import java.util.ArrayList;
 public class HistogramGenerator {
 
     /**
-     * This method receives the argument given by the user from main method,
-     * which is the path of a specific file, reads its numbers as Strings, adds
-     * them in an ArrayList with type Double and then converts it into a 
-     * Double array.
+     * This method receives the path given by the user,
+     * reads its numbers as strings, adds them in an arrayList type integer 
+     * and finally finds the frequency of each grade in an array with the size 
+     * of the maximum grade.
      * 
      * @param filePath The URL of the file.
-     * @return double[] Returns the numbers that are going to be processed
-     * and presented in the histogram.
+     * @return int[] Returns the frequency of each grade.
      */
-    public static double[] readGradesFromFile(String filePath) {               
-        ArrayList<Double> grades = new ArrayList<Double>();
+    public static int[] readGradesFromFile(String filePath) {               
+        ArrayList<Integer> grades = new ArrayList<Integer>();
         try {
             File file = new File(filePath);
             BufferedReader br = new BufferedReader(new FileReader(file));
             String num;
             while((num = br.readLine()) != null) {
-                grades.add(Double.parseDouble(num));
+                grades.add(Integer.parseInt(num));
             } 
             br.close();
-        } catch (Exception e) {
-            System.out.println("There is no such file.");
+        } catch (Exception e) { //if an exception occur, terminate and print exception message
+            System.out.println("\n\n"
+                + "ERROR! Unexpectedly terminated!\nException: "
+                + e.getMessage()
+                + "\n\n");
+            System.exit(0);
         }
-        //from ArrayList<Integer> to double[]
-        final double[] gradesArray = new double[grades.size()];
+
+        //initialize size of int array finding the maximum grade and find each grade frequency 
+        int[] frequencies = new int[Collections.max(grades) + 1];
         for(int i = 0; i < grades.size(); i++) {
-            gradesArray[i] = grades.get(i);
+            frequencies[grades.get(i)]++;
         }
-        return gradesArray;
+        return frequencies;
     }
 
     /**
-     * This is the method that receives the numbers and generates the frequency
-     * histogram chart.
+     * This method receives the numbers and generates the grades' frequency
+     * histogram chart using JFree.
      * 
      * @param gradesArray Numbers of the file.
      */
-    public static void generateChart(double[] gradesArray) {
-        HistogramDataset dataset = new HistogramDataset();
-        dataset.setType(HistogramType.FREQUENCY);
-        dataset.addSeries("grades", gradesArray, 35);
+    public static void generateChart(int[] gradesArray) {
+        XYSeriesCollection dataset = new XYSeriesCollection();
+        XYSeries data = new XYSeries("frequencies");
+        
+        for (int i = 0; i < gradesArray.length; i++) {
+            data.add(i, gradesArray[i]);
+        }
+        dataset.addSeries(data);
 
         boolean legend = false;
         boolean tooltips = false;
@@ -78,24 +86,23 @@ public class HistogramGenerator {
             tooltips, 
             urls
         );
-        ChartFrame frame = new ChartFrame("Histogram", chart);
+        ChartFrame frame = new ChartFrame("Grades' Histogram", chart);
         frame.pack();
         frame.setVisible(true);
-
     }
 
     /**
-     * This is the main method which takes the file's path from the user and makes
-     * use of the other two methods, readGradesFromFile and generateChart, to 
-     * finally produce the chart.
+     * The main method takes the argument(filepath) from the user and makes
+     * use of readGradesFromFile and generateChart, to 
+     * produce the final histogram chart.
      * 
-     * @param args Takes the path of .txt file the user wants to produce its
+     * @param args Takes the path of .txt file that the user wants to produce its
      * histogram.
      */
     public static void main(String[] args) {
         String filePath = args[0];
-        double[] grades = readGradesFromFile(filePath);
-        generateChart(grades);
+        int[] frequencies = readGradesFromFile(filePath);
+        generateChart(frequencies);
     }
 
 }
