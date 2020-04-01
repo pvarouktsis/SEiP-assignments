@@ -1,12 +1,12 @@
 # Histogram Generator
 
-**This is a Maven Project that receives a path of a .txt file as argument from the user which contains integer numbers, one number per line (eg. students' grades), and generates its Frequency Histogram based on [JFreeChart](http://www.jfree.org/jfreechart/).**
+**This is a Maven Project that receives the path of a .txt file as argument from the user and generates its frequency histogram. The .txt file (e.g. grades.txt) must contain integer numbers, and only one number per line, otherwise there will be an error that will stop the process. The Project makes use of [JFreeChart](http://www.jfree.org/jfreechart/) to produce the final histogram chart.**
   
 ## Getting Started
 
 ### Prerequisites
 
-First you have to install [Java](https://www.oracle.com/java/technologies/javase-downloads.html) and [Maven](https://maven.apache.org/) if you haven't already done.
+Install [Java](https://www.oracle.com/java/technologies/javase-downloads.html) and [Maven](https://maven.apache.org/) if you haven't already done.
 
 ### Installation
 
