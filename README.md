@@ -10,7 +10,7 @@ First you have to install [Java](https://www.oracle.com/java/technologies/javase
 
 ### Installation
 
-Clone the repository 
+Clone the repository  
 ```git clone https://github.com/pvarouktsis/lab-assignment-2.git ```
 
 Change to project's main directory where the first pom.xml is  
