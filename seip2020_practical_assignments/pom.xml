@@ -29,4 +29,7 @@
   <modules>
     <module>gradeshistogram</module>
   </modules>
+  <modules>
+    <module>unittesting</module>
+  </modules>
 </project>
