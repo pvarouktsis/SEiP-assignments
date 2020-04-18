@@ -12,7 +12,7 @@ import org.junit.runners.Parameterized.Parameters;
 import org.junit.Assert;
 
 @RunWith(Parameterized.class)
-public class MyMathTest {
+public class MyMathFactorialTest {
 
   @Parameter (value = 0)
   public int x;
