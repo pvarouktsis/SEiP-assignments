@@ -10,7 +10,7 @@ is basen on [Java](https://www.oracle.com/java/technologies/javase-downloads.htm
 - [Maven](https://maven.apache.org/) \- Dependency Management
 
 ## Version
-- Lab Assignment 1.0.0
+- Lab Assignments 1.0.0
 
 ## Authors
 - Panagiotis Varouktsis
