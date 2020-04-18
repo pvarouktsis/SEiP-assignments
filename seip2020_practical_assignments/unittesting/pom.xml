@@ -10,7 +10,7 @@
 
   <!-- Replace the following values with your own -->
 	<artifactId>unittesting</artifactId>
-	<name>Unit Testing practice project</name>
+	<name>Unit Testing Practice Project</name>
 	<description>A project for practicing Unit Testing</description>
  
   <properties>

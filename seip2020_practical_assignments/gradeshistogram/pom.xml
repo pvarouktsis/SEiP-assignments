@@ -8,10 +8,10 @@
   </parent>
 
   <artifactId>gradeshistogram</artifactId>
-  <name>gradeshistogram</name>
+  <name>Histogram Generator</name>
   <description>
     HistogramGenerator implements an application that takes as
-    as Java CLI argument a path of .txt file containing numbers 
+    Java CLI Argument a path of .txt file containing integer numbers 
     and generates its Frequency Histogram.
   </description>
 
