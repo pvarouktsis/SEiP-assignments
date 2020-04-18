@@ -6,13 +6,13 @@ A project for practicing Unit Testing.
 Install [Java](https://www.oracle.com/java/technologies/javase-downloads.html) and [Maven](https://maven.apache.org/), if you haven't already done.
 
 ### Installation
-#### Clone 
+- #### Clone 
 ```git clone https://github.com/pvarouktsis/lab-assignment-2.git```
-#### Change Directory
+- #### Change Directory
 ```cd ./lab-assignment-2/seip2020_practical_assignments/```
-#### Build
+- #### Build
 ```mvn package```
-#### Run
+- #### Run
 ```TODO```
 
 ## Built with
