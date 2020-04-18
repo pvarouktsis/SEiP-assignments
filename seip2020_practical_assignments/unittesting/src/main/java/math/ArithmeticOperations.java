@@ -18,7 +18,7 @@ public class ArithmeticOperations {
 	 * @exception ArithmeticException when denominator is zero 
 	 */
 	public double divide(double numerator, double denominator) {
-		if (denominator == 0) throw new ArithmeticException("Cannot divide with zero.");
+		if (denominator == 0) throw new ArithmeticException("Cannot divide with zero");
 		return numerator/denominator;
 	}
 	
