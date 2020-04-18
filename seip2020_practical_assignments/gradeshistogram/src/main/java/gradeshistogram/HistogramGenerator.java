@@ -49,7 +49,8 @@ public class HistogramGenerator {
                 + "\n\n");
             System.exit(0);
         }
-
+        
+        // TODO in different method
         //initialize size of int array finding the maximum grade and find each grade frequency 
         int[] frequencies = new int[Collections.max(grades) + 1];
         for(int i = 0; i < grades.size(); i++) {
