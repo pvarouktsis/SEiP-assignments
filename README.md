@@ -12,6 +12,6 @@ is basen on [Java](https://www.oracle.com/java/technologies/javase-downloads.htm
 ## Version
 - Lab Assignment 1.0.0
 
-## Author
+## Authors
 - Panagiotis Varouktsis
 
