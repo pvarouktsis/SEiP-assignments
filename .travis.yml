@@ -1,7 +1,7 @@
 language: java
 jdk: 
   - openjdk8
-  - oraclejdk9
+  - oraclejdk8
 
 branches:
   only:
@@ -17,11 +17,10 @@ install:
   - sudo apt install maven -y
 
 before_script:
-  - cd seip2020_practical_assignments
+  - cd ./seip2020_practical_assignments/
 
 script:
-  - mvn clean
-  - mvn package
+  - mvn clean package
 
 after_success:
   - echo "Process terminated successfully"
