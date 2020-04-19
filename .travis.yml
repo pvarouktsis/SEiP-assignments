@@ -8,8 +8,6 @@ branches:
   - master
   - development
 
-sudo: required
-
 before_install: 
   - sudo apt update
 
