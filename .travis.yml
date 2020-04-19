@@ -18,6 +18,7 @@ before_script:
   - cd ./seip2020_practical_assignments/
 
 script:
+  - mvn clean
   - mvn package
 
 after_success:
