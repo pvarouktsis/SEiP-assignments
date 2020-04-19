@@ -26,12 +26,6 @@ public class ArithmeticOperationsTest {
     Assert.assertEquals(2.0, arops.divide(-10.0, -5.0), 0.0001);
     Assert.assertEquals(0.0, arops.divide(-0.0, -5.0), 0.0001);
     Assert.assertEquals(3.3333, arops.divide(-10.0, -3.0), 0.0001);
-    //
-    Assert.assertEquals(0.0, arops.divide(0.0, 1.0), 0.0001);
-    Assert.assertEquals(0.0, arops.divide(0.0, -1.0), 0.0001);
-    Assert.assertEquals(0.0, arops.divide(-0.0, 1.0), 0.0001);
-    Assert.assertEquals(0.0, arops.divide(-0.0, -1.0), 0.0001);
-
   }
   
   @Test (expected = ArithmeticException.class)
