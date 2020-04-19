@@ -8,4 +8,6 @@ import org.junit.runners.Suite;
   MyMathFactorialTest.class, 
   MyMathTest.class
 })
-public class MyMathSuiteTest { }
+public class MyMathSuiteTest {
+  /* It should remain empty */
+}

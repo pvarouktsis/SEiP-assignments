@@ -3,7 +3,6 @@ package math;
 /**
 * The MathOperations provides simple arithmetic operations
 * that serve as hands-on practice on Unit Testing.
-*
 * @author  agkortzis
 * @version 1.0
 * @since   2020-04-06 
