@@ -17,11 +17,11 @@ install:
   - sudo apt install maven -y
 
 before_script:
-  - seip2020_practical_assignments
+  - cd seip2020_practical_assignments
 
 script:
-  -mvn clean
-  -mvn package
+  - mvn clean
+  - mvn package
 
 after_success:
   - echo "Process terminated successfully"
