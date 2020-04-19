@@ -4,6 +4,7 @@ package math;
 * The MathOperations provides simple arithmetic operations
 * that serve as hands-on practice on Unit Testing.
 * @author  agkortzis
+* @author  Panagiotis Varouktsis
 * @version 1.0
 * @since   2020-04-06 
 */
@@ -34,10 +35,10 @@ public class ArithmeticOperations {
 	public int multiply(int x, int y) {
 		if (x < 0 || y < 0) {
 			throw new IllegalArgumentException("x & y should be >= 0");
-		} else if (x <= Integer.MAX_VALUE/y) {
-			return x*y;			
+		} else if ((x != 0 && y != 0) && (x > Integer.MAX_VALUE/y)) {
+			throw new IllegalArgumentException("The product does not fit in an Integer variable");
 		} else {
-			throw new IllegalArgumentException("The product does not fit in an Integer variable");		
+			return x*y;			
 		}
 	}
 	

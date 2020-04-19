@@ -3,9 +3,9 @@ package math;
 /**
  * MyMath provides a simple recursive method that
  * finds the factorial of a number in the interval [0, 12].
- * @author Panagiotis Varouktsis
+ * @author  Panagiotis Varouktsis
  * @version 1.0
- * @since 2020-04-19
+ * @since   2020-04-19
  */
 public class MyMath {
 

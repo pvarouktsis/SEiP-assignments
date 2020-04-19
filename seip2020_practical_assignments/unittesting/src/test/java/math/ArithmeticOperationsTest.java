@@ -45,7 +45,8 @@ public class ArithmeticOperationsTest {
     Assert.assertEquals(98, arops.multiply(1, 98));
     Assert.assertEquals(1376515, arops.multiply(587, 2345));
     Assert.assertEquals(0, arops.multiply(0, 91));
-    //TODO test for y = 0 but y is divided by the MAX_VALUE
+    Assert.assertEquals(0, arops.multiply(85, 0));
+    Assert.assertEquals(0, arops.multiply(0, 0));
   }
 
   @Rule
