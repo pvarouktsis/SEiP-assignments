@@ -9,7 +9,7 @@ public class ArithmeticOperationsTest {
   ArithmeticOperations arops = new ArithmeticOperations();
 
   @Test
-  public void testDivide() {
+  public void divide_testingCases_expectedOutputs() {
     //
     Assert.assertEquals(2.0, arops.divide(10.0, 5.0), 0.0001);
     Assert.assertEquals(0.0, arops.divide(0.0, 5.0), 0.0001);
@@ -35,12 +35,12 @@ public class ArithmeticOperationsTest {
   }
   
   @Test (expected = ArithmeticException.class)
-  public void testDivideExceptiion() {
+  public void divide_divideByZero_expectedArithmeticException() {
     arops.divide(10.0, 0.0);
   }
 
   @Test
-  public void testMultiply() {
+  public void multiply_testingCases_expectedOutputs() {
     Assert.assertEquals(1, arops.multiply(1, 1));
     Assert.assertEquals(98, arops.multiply(1, 98));
     Assert.assertEquals(1376515, arops.multiply(587, 2345));
@@ -52,14 +52,14 @@ public class ArithmeticOperationsTest {
   public ExpectedException thrown = ExpectedException.none();
 
   @Test
-  public void testMultiplyForNegativeInputs() {
+  public void multiply_negativeInputs_expectedIllegalArgumentException() {
     thrown.expect(IllegalArgumentException.class);
     thrown.expectMessage("x & y should be >= 0");
     arops.multiply(-1, 5);
   }
 
   @Test
-  public void testMultiplyForIntegerMaxValueOutput() {
+  public void multiply_outOfBoundsOutput_expectedIllegalArgumentException() {
     thrown.expect(IllegalArgumentException.class);
     thrown.expectMessage("The product does not fit in an Integer variable");
     arops.multiply(Integer.MAX_VALUE/5, 10);
