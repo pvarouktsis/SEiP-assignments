@@ -18,7 +18,8 @@ before_script:
   - cd ./seip2020_practical_assignments/
 
 script:
-  - mvn clean package
+  - mvn clean 
+  - mvn package
 
 after_success:
   - echo "Process terminated successfully"
