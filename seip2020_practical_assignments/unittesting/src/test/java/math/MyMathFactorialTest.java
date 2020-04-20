@@ -28,7 +28,7 @@ public class MyMathFactorialTest {
   }
 
   @Test
-  public void factorial_validTestingCases_expectedOutputs() {
+  public void testFactorial_validTestingCases_expectedOutputs() {
     Assert.assertEquals(factorial, mm.factorial(x));
   }
 
