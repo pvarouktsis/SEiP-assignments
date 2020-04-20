@@ -19,7 +19,7 @@ before_script:
 
 script:
   - mvn clean
-  - mvn package
+  - mvn package jacoco:report
 
 after_success:
   - echo "Process terminated successfully"
