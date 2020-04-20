@@ -1,5 +1,7 @@
 package math;
 
+import java.util.ArrayList;
+
 /**
  * MyMath provides a simple recursive method that
  * finds the factorial of a number in the interval [0, 12].
@@ -30,6 +32,32 @@ public class MyMath {
         return x * factorial(x-1);
       }
     }
+  }
+  
+  /**
+   * TODO
+   * @param x the input number
+   * @return true if it is a prime numbers, false otherwise
+   */
+  public boolean isPrime(int x) {
+    if (x < 2) {
+      throw new IllegalArgumentException("Expected x >= 2");
+    }
+    
+    boolean isPrime = true;
+    if ((x > 2) && (x % 2 == 0)) {
+      isPrime = false;
+      return isPrime;
+    }
+    int possibleFactor = 3;
+    while ((possibleFactor * possibleFactor) <= x) {
+      if (x % possibleFactor == 0) {
+        isPrime = false;
+        return isPrime;
+      }
+      possibleFactor += 2;
+    }
+    return isPrime;
   }
 
 }
