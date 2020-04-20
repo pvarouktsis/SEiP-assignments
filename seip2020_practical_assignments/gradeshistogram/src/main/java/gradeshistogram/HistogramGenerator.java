@@ -15,7 +15,6 @@ import java.util.ArrayList;
 /**
  * HistogramGenerator implements an application that takes as argument the path 
  * of .txt file containing integer numbers and generates its frequency histogram.
- * 
  * @author Panagiotis Varouktsis
  * @version 1.0.0
  * @since 2020-03-28
@@ -24,53 +23,56 @@ import java.util.ArrayList;
 public class HistogramGenerator {
 
     /**
-     * This method receives the path given by the user,
-     * reads its numbers as strings, adds them in an arrayList type integer 
-     * and finally finds the frequency of each grade in an array with the size 
-     * of the maximum grade.
-     * 
-     * @param filePath The URL of the file.
-     * @return int[] Returns the frequency of each grade.
+     * Receives the filepath, given by the user, reads its content as
+     * strings, one number per line, and parse them as integers into 
+     * an arraylist to finally return them. If any exception occur, the 
+     * program terminates with appropriate message.
+     * @param filePath the URL(path) of the file
+     * @return an arraylist containing all the integers from the file
      */
-    public static int[] readGradesFromFile(String filePath) {               
-        ArrayList<Integer> grades = new ArrayList<Integer>();
+    public static ArrayList<Integer> readNumbersFromFile(String filePath) {               
+        ArrayList<Integer> numbers = new ArrayList<Integer>();
         try {
             File file = new File(filePath);
             BufferedReader br = new BufferedReader(new FileReader(file));
             String num;
             while((num = br.readLine()) != null) {
-                grades.add(Integer.parseInt(num));
+                numbers.add(Integer.parseInt(num));
             } 
             br.close();
         } catch (Exception e) { //if an exception occur, terminate and print exception message
-            System.out.println("\n\n"
-                + "ERROR! Unexpectedly terminated!\nException: "
-                + e.getMessage()
-                + "\n\n");
+            System.out.println("\nERROR! Unexpectedly terminated!\nException: " + e.getMessage()+ "\n");
             System.exit(0);
         }
-        
-        // TODO in different method
-        //initialize size of int array finding the maximum grade and find each grade frequency 
-        int[] frequencies = new int[Collections.max(grades) + 1];
-        for(int i = 0; i < grades.size(); i++) {
-            frequencies[grades.get(i)]++;
+        return numbers;
+    }
+
+    /**
+    * Processes an arraylist of integers and calculates
+    * their frequencies in an integer array with size, that 
+    * of their maximum integer.
+    * @param numbers the arraylist containing the input numbers
+    * @return an integer array with their frequencies
+    */
+    public static int[] calculateFrequencies(ArrayList<Integer> numbers) {
+        int[] frequencies = new int[Collections.max(numbers) + 1];
+        for(int i = 0; i < numbers.size(); i++) {
+            frequencies[numbers.get(i)]++;
         }
         return frequencies;
     }
 
     /**
-     * This method receives the numbers and generates the grades' frequency
+     * Receives the frequencies and generates the frequency
      * histogram chart using JFree.
-     * 
-     * @param gradesArray Numbers of the file.
+     * @param frequencies the integer array with the frequencies
      */
-    public static void generateChart(int[] gradesArray) {
+    public static void generateChart(int[] frequencies) {
         XYSeriesCollection dataset = new XYSeriesCollection();
         XYSeries data = new XYSeries("frequencies");
         
-        for (int i = 0; i < gradesArray.length; i++) {
-            data.add(i, gradesArray[i]);
+        for (int i = 0; i < frequencies.length; i++) {
+            data.add(i, frequencies[i]);
         }
         dataset.addSeries(data);
 
@@ -78,31 +80,32 @@ public class HistogramGenerator {
         boolean tooltips = false;
         boolean urls = false;
         JFreeChart chart = ChartFactory.createXYLineChart(
-            "Students' Grades Histogram",   //title
-            "Grades",                       //x_axis
-            "Frequency",                    //y_axis
+            "Histogram",             //title
+            "Integers",              //x_axis
+            "Frequency",             //y_axis
             dataset, 
             PlotOrientation.VERTICAL, 
             legend, 
             tooltips, 
             urls
         );
-        ChartFrame frame = new ChartFrame("Grades' Histogram", chart);
+        ChartFrame frame = new ChartFrame("numbers' Histogram", chart);
         frame.pack();
         frame.setVisible(true);
     }
 
     /**
-     * The main method takes the argument(filepath) from the user and makes
-     * use of readGradesFromFile and generateChart, to 
-     * produce the final histogram chart.
+     * Main receives the argument(filepath) from the user and makes
+     * use of readNumbersFromFile, calculateFrequencies and generateChart to 
+     * produce the final frequency histogram chart.
      * 
-     * @param args Takes the path of .txt file that the user wants to produce its
-     * histogram.
+     * @param args the path of .txt file that the user wants to generate its 
+     * histogram
      */
     public static void main(String[] args) {
         String filePath = args[0];
-        int[] frequencies = readGradesFromFile(filePath);
+        ArrayList<Integer> numbers = readNumbersFromFile(filePath);
+        int[] frequencies = calculateFrequencies(numbers);
         generateChart(frequencies);
     }
 
