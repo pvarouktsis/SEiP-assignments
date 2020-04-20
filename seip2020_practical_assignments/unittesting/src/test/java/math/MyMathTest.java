@@ -58,4 +58,10 @@ public class MyMathTest {
     thrown.expectMessage("Expected x >= 2");
     mm.isPrime(0);
   }
+
+  @Test
+  public void testIsPrime_OutOfBoundsInput_expectedIllegalArgumentException() {
+    thrown.expect(IllegalArgumentException.class);
+    mm.isPrime(Integer.MAX_VALUE + 1);
+  }
 }
