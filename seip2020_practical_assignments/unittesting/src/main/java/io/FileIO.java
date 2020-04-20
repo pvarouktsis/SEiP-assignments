@@ -13,6 +13,7 @@ import java.util.List;
 * that serve as hands-on practice on Unit Testing.
 *
 * @author  agkortzis
+* @author  Panagiotis Varouktsis
 * @version 1.0
 * @since   2020-04-06 
 */
@@ -38,8 +39,12 @@ public class FileIO {
 			reader = new BufferedReader(new FileReader(file));
 			String line = null;
 			while ((line = reader.readLine()) != null) {
-				int number = Integer.parseInt(line);
-				numbersList.add(number);
+				if (isInteger(line)) {
+					int number = Integer.parseInt(line);
+					numbersList.add(number);
+				} else {
+					continue;
+				}
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -50,6 +55,23 @@ public class FileIO {
 		
 		// Convert a List to an array using 
 		return numbersList.stream().mapToInt(i -> i).toArray();
+	}
+	
+	/**
+	 * Performs a parseInt() to the input string. If an exception
+	 * is occurred, it is not an integer and returns false. Otherwise, 
+	 * returns true.
+	 * @param line the line/string we want to check
+	 * @return true if it is integer, false if it is not
+	 */
+	public static boolean isInteger(String line) {
+		int integer;
+		try {
+			integer = Integer.parseInt(line);
+			return true;
+		} catch (Exception e) {
+			return false;
+		}
 	}
 
 }
