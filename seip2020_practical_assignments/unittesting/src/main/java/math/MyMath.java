@@ -35,15 +35,24 @@ public class MyMath {
   }
   
   /**
-   * TODO
+   * Performs some simple mathematical operations to 
+   * check if x is a natural prime number. First of all, checks if x is
+   * greater than 2, otherwise it is not a natural prime number and throws 
+   * a new IllegalArgumentException. Then, if x is greater than 2 and 
+   * x modulo 2 equals 0, returns false. Else, initializes a variable, 
+   * possibleFactor, given the value of 3 and while the square of the
+   * possibleFactor is less than x, checks the x modulo possibleFactor
+   * if equals 0. If yes, returns false, otherwise, increases the 
+   * possibleFactor by 2 and checks again. 
    * @param x the input number
-   * @return true if it is a prime numbers, false otherwise
+   * @return true if x is a prime number, false otherwise
+   * @exception IllegalArgumentException when x < 2
    */
   public boolean isPrime(int x) {
     if (x < 2) {
       throw new IllegalArgumentException("Expected x >= 2");
     }
-    
+
     boolean isPrime = true;
     if ((x > 2) && (x % 2 == 0)) {
       isPrime = false;
