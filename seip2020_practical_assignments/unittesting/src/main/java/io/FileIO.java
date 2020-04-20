@@ -62,7 +62,7 @@ public class FileIO {
 	 * is occurred, it is not an integer and returns false. Otherwise, 
 	 * returns true.
 	 * @param line the line/string we want to check
-	 * @return true if it is integer, false if it is not
+	 * @return true if it is integer, false otherwise
 	 */
 	public static boolean isInteger(String line) {
 		int integer;
