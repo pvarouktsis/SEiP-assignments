@@ -3,8 +3,8 @@ package math;
 import java.util.ArrayList;
 
 /**
- * MyMath provides a simple recursive method that
- * finds the factorial of a number in the interval [0, 12].
+ * MyMath provides simple mathematical methods that
+ * are used for practicing Unit Test Techniques.
  * @author  Panagiotis Varouktsis
  * @version 1.0
  * @since   2020-04-19
@@ -12,6 +12,8 @@ import java.util.ArrayList;
 public class MyMath {
 
   /**
+   * Factorial method finds the factorial of a 
+   * number in the interval [0, 12].
    * Performs recursive calls, decreasing each
    * time the input by 1, until 0, where it returns 1.
    * Finally returns, recursively, the product of them.
@@ -35,15 +37,16 @@ public class MyMath {
   }
   
   /**
-   * Performs some simple mathematical operations to 
-   * check if x is a natural prime number. First of all, checks if x is
+   * Performs some simple mathematical operations to check if an input 
+   * number (x) is a natural prime number. First of all, checks if x is
    * greater than 2, otherwise it is not a natural prime number and throws 
    * a new IllegalArgumentException. Then, if x is greater than 2 and 
    * x modulo 2 equals 0, returns false. Else, initializes a variable, 
    * possibleFactor, given the value of 3 and while the square of the
    * possibleFactor is less than x, checks the x modulo possibleFactor
    * if equals 0. If yes, returns false, otherwise, increases the 
-   * possibleFactor by 2 and checks again. 
+   * possibleFactor by 2 and checks again, till the condition will be turned
+   * false. 
    * @param x the input number
    * @return true if x is a prime number, false otherwise
    * @exception IllegalArgumentException when x < 2

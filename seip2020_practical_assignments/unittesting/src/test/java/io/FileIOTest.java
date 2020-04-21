@@ -16,14 +16,14 @@ public class FileIOTest {
 
   @Test
   public void testReadFile_validTestingCase_expectedOutputs() {
-    int[] expectedValidSample = {3, 4, 5, 7, 0, 9, 6, 2, 0, 0, -2, 8, 0, 0, 4, 10, -4, 2, 2, 4};
+    int[] expectedValidSample = {3, 4, 5, 7, 0, 9, 6, 2, 0, 0, -2, 8, 0, 0, 4, 10, -4, 2, 2, 4, 7, 10, 5, 8, 9, 1, 4, -6, 10, 0};
     filepath = new File("src/test/resources/valid_sample.txt").getAbsolutePath();
     Assert.assertArrayEquals(expectedValidSample, fio.readFile(filepath));
   }
 
   @Test
   public void testReadFileContainsInvalidEntries() {
-    int[] expectedInvalidSample = {3, 4, 5, 0, 9, 6, -2, 0, 0, 8, 0, 4, 4, 2, 2, 999999999, 4, -5, 0};
+    int[] expectedInvalidSample = {3, 4, 5, 0, 9, 6, -2, 0, 0, 8, 0, 4, 4, 2, 2, 999999999, 4, -5, 0, 15, 11, 1, 6, 7, -3, 13, 13, 4};
     filepath = new File("src/test/resources/invalid_sample.txt").getAbsolutePath();
     Assert.assertArrayEquals(expectedInvalidSample, fio.readFile(filepath));
   }

@@ -5,6 +5,14 @@ import math.MyMath;
 import java.util.List;
 import java.util.ArrayList;
 
+/**
+ * ArrayOperations implements a simple method,
+ * using already existing code, to find all 
+ * prime natural numbers in a file.
+ * @author Panagiotis Varouktsis
+ * @version 1.0
+ * @since 2020-04-21
+ */
 public class ArrayOperations {
 
   /**
@@ -23,7 +31,8 @@ public class ArrayOperations {
         if (myMath.isPrime(number)) 
           primeNumbers.add(number);
       } catch (IllegalArgumentException e) {
-        /* Pass */
+        /* Ignore & Continue */
+        continue;
       }
     }
     return primeNumbers.stream().mapToInt(x -> x).toArray();
