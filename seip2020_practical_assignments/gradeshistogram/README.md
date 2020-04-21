@@ -13,7 +13,9 @@ Install [Java](https://www.oracle.com/java/technologies/javase-downloads.html) a
 - #### Build
   ```mvn package```
 - #### Run
-  ```java -jar gradeshistogram/target/gradeshistogram-1.0-SNAPSHOT-jar-with-dependencies.jar path/of/your/file.txt```
+  ```
+  java -jar gradeshistogram/target/gradeshistogram-1.0-SNAPSHOT-jar-with-dependencies.jar path/of/your/file.txt
+  ```
 
 ## Built with
 - [Maven](https://maven.apache.org/) \- Dependency Management
