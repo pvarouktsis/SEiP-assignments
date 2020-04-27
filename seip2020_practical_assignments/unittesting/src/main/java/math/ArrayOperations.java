@@ -31,7 +31,7 @@ public class ArrayOperations {
         if (myMath.isPrime(number)) 
           primeNumbers.add(number);
       } catch (IllegalArgumentException e) {
-        /* Ignore & Continue */
+        /* Ignore and continue */
         continue;
       }
     }

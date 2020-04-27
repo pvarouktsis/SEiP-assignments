@@ -51,7 +51,6 @@ public class MyMathTest {
     Assert.assertFalse(mm.isPrime(9832));
     Assert.assertFalse(mm.isPrime(234));
     Assert.assertFalse(mm.isPrime(Integer.MAX_VALUE)); // 2,147,483,647
-    //TODO bigger than maximum integer
   }
 
   @Test
@@ -66,4 +65,5 @@ public class MyMathTest {
     thrown.expect(IllegalArgumentException.class);
     mm.isPrime(Integer.MAX_VALUE + 1);
   }
+
 }
