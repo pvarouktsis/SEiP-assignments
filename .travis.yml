@@ -7,6 +7,10 @@ branches:
   only:
   - master
 
+env:
+  global:
+  - CODECOV_TOKEN="61987326-962f-4759-8a56-f4b8addaec1f"
+
 before_install: 
   - sudo apt update
 
