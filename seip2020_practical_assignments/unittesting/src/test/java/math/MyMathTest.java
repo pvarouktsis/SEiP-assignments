@@ -27,6 +27,7 @@ public class MyMathTest {
 
   @Test
   public void testIsPrime_validInputs_expectedOutputs() {
+    // testing prime numbers, expected true
     Assert.assertTrue(mm.isPrime(2));
     Assert.assertTrue(mm.isPrime(3));
     Assert.assertTrue(mm.isPrime(5));
@@ -37,7 +38,8 @@ public class MyMathTest {
     Assert.assertTrue(mm.isPrime(19));
     Assert.assertTrue(mm.isPrime(89));
     Assert.assertTrue(mm.isPrime(Integer.MAX_VALUE - 18)); // 2,147,483,647 - 18 = 2,147,483,629
-    //
+
+    // testing not prime numbers, expected false
     Assert.assertFalse(mm.isPrime(4));
     Assert.assertFalse(mm.isPrime(6));
     Assert.assertFalse(mm.isPrime(8));
