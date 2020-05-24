@@ -29,5 +29,4 @@ public class LOCMetric implements Metric {
     int loc = sourceCodeList.size() - nonCodeLinesCounter;
     return loc;
   }
-
 }

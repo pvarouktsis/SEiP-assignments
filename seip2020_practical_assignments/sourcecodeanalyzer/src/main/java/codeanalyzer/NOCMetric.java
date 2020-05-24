@@ -5,10 +5,10 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class NOCMetric implements Metric {
+
   public int calculateWithRegex(String sourceCodeString) {
     Pattern pattern = Pattern.compile(".*\\s*class\\s+.*"); 
     Matcher classSignatures = pattern.matcher(sourceCodeString);
-
     int noc = 0;
     while (classSignatures.find()) {
       noc++;

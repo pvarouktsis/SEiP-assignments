@@ -31,7 +31,7 @@ public class MetricsExporter {
 		
 		for (Map.Entry<String, Integer> entry : metrics.entrySet()) {
 			metricsNames.append(entry.getKey() + ",");
-			metricsValues.append(entry.getValue()+",");
+			metricsValues.append(entry.getValue() + ",");
 		}
 		
 		try {
