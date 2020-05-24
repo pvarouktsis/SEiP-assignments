@@ -12,7 +12,6 @@ import java.util.regex.Pattern;
  * The current functionality supports two types of source code analysis,
  * namely regex (with the use of regular expressions) and 
  * strcomp (with the use of string comparison).
- * This class deliberately contains code smells and violations of design principles. 
  * @author agkortzis
  *
  */
@@ -25,82 +24,44 @@ public class SourceCodeAnalyzer {
 	}
 		
 	public int calculateLOC(String filepath, String analyzerType) throws IOException {
+		Metric locm = new LOCMetric();
+		int loc = -1;
 		if(analyzerType.equals("regex")) {
-			String sourceCode = fileReader.readFileIntoString(filepath);
-			Pattern pattern = Pattern.compile("((//.*)|(/\\*.*)|(\\*+.*))");
-	        Matcher nonCodeLinesMatcher = pattern.matcher(sourceCode);
-
-	        int nonCodeLinesCounter = 0;
-	        while (nonCodeLinesMatcher.find()) {
-	        	nonCodeLinesCounter++;
-	        }
-			
-	        int sourceFileLength = sourceCode.split("\n").length;
-	        int loc =  sourceFileLength - nonCodeLinesCounter;
-	        
-			return loc;
+			String sourceCodeString = fileReader.readFileIntoString(filepath);
+			loc = locm.calculateWithRegex(sourceCodeString);
 		} else if (analyzerType.equals("strcomp")) {
 			List<String> sourceCodeList = fileReader.readFileIntoList(filepath);
-			int nonCodeLinesCounter = 0;
-			for (String line : sourceCodeList) {
-				line = line.stripLeading().stripTrailing(); //clear all leading and trailing white spaces
-				if (line.startsWith("//") || line.startsWith("/*") || line.startsWith("*") || line.equals("{") || line.equals("}") || line.equals(""))
-					nonCodeLinesCounter++;
-			}
-			int loc = sourceCodeList.size() - nonCodeLinesCounter;
-			return loc; 
+			loc = locm.calculateWithStrcomp(sourceCodeList);
 		}
-		return -1;
+		
+		return loc;
 	}
 	
 	public int calculateNOM(String filepath, String analyzerType) throws IOException {
+		Metric nomm = new NOMMetric();
+		int nom = -1;
 		if(analyzerType.equals("regex")) {
-			String sourceCode = fileReader.readFileIntoString(filepath);
-			Pattern pattern = Pattern.compile(".*(public |protected |private |static )?[\\w\\<\\>\\[\\]]+\\s+(\\w+) *\\([^\\)]*\\) *(\\{?|[^;]).*"); 
-	        Matcher methodSignatures = pattern.matcher(sourceCode);
-
-	        int methodCounter = 0;
-	        while (methodSignatures.find()) {
-	        	methodCounter++;
-	        }
-			return methodCounter;
+			String sourceCodeString = fileReader.readFileIntoString(filepath);
+			nom = nomm.calculateWithRegex(sourceCodeString);
 		} else if (analyzerType.equals("strcomp")) {
 			List<String> sourceCodeList = fileReader.readFileIntoList(filepath);
-			int methodCounter = 0;
-			for (String line : sourceCodeList) {
-				line = line.stripLeading().stripTrailing(); //clear all leading and trailing white spaces
-				if ( ((line.contains("public") || line.contains("private") || line.contains("protected"))
-						|| line.contains("void") || line.contains("int") || line.contains("String"))
-					&& line.contains("(") && line.contains(")") && line.contains("{") )
-					methodCounter++;
-			}
-			return methodCounter; 
+			nom = nomm.calculateWithStrcomp(sourceCodeList);
 		}
-		return -1;
+
+		return nom;
 	}
 	
 	public int calculateNOC(String filepath, String analyzerType) throws IOException {
+		Metric nocm = new NOCMetric();
+		int noc = -1;
 		if(analyzerType.equals("regex")) {
-			String sourceCode = fileReader.readFileIntoString(filepath);
-			Pattern pattern = Pattern.compile(".*\\s*class\\s+.*"); 
-	        Matcher classSignatures = pattern.matcher(sourceCode);
-
-	        int classCounter = 0;
-	        while (classSignatures.find()) {
-	        	classCounter++;
-	        }
-			return classCounter;
+			String sourceCodeString = fileReader.readFileIntoString(filepath);
+			noc = nocm.calculateWithRegex(sourceCodeString);
 		} else if (analyzerType.equals("strcomp")) {
 			List<String> sourceCodeList = fileReader.readFileIntoList(filepath);
-			int classCounter = 0;
-			for (String line : sourceCodeList) {
-				line = line.strip(); //remove leading and trailing white spaces
-				if ((line.startsWith("class ") || line.contains(" class ")) && line.contains("{")) {
-					classCounter++;
-				}
-			}
-			return classCounter; 
+			noc = nocm.calculateWithStrcomp(sourceCodeList);
 		}
-		return -1;
+		
+		return noc;
 	}
 }
