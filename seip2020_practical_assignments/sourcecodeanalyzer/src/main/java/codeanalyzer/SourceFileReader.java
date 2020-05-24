@@ -10,38 +10,8 @@ import java.util.List;
  * @author agkortzis
  *
  */
-public class SourceFileReader {
+interface SourceFileReader {
 	
-	private String type;
-	
-	public SourceFileReader(String type) {
-		this.type = type;
-	}
-	
-
-	public List<String> readFileIntoList(String filepath) throws IOException {
-		SourceFileListReader flr = new SourceFileListReader();
-		List<String> file = null;
-		if (type.contentEquals("local")) {
-			file = flr.readLocalFile(filepath);
-		} else if (type.contentEquals("web")) {
-			file = flr.readWebFile(filepath);
-		}
-
-		return file;
-	}
-	
-
-	public String readFileIntoString(String filepath) throws IOException {
-		SourceFileStringReader fsr = new SourceFileStringReader();
-		String file = null;
-		if (type.contentEquals("local")) {
-			file = fsr.readLocalFile(filepath);
-		} else if (type.contentEquals("web")) {
-			file = fsr.readLocalFile(filepath);
-		}
-		
-		return file;
-	}
-
+	public String readFileIntoString(String filepath) throws IOException;
+	public List<String> readFileIntoList(String filepath) throws IOException;
 }
