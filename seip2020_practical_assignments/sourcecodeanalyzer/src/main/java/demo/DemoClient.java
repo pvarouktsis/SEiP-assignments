@@ -26,15 +26,10 @@ public class DemoClient {
 			System.exit(1);
 		}
 
+		// main code
 		SourceCodeAnalyzer analyzer = new SourceCodeAnalyzer(sourceFileLocation);
-		int loc = analyzer.calculateLOC(filepath, sourceCodeAnalyzerType);
-		int nom = analyzer.calculateNOM(filepath, sourceCodeAnalyzerType);
-		int noc = analyzer.calculateNOC(filepath, sourceCodeAnalyzerType);
-		
 		Map<String, Integer> metrics = new HashMap<>();
-		metrics.put("loc",loc);
-		metrics.put("nom",nom);
-		metrics.put("noc",noc);
+		metrics = analyzer.calculateMetrics(filepath, sourceCodeAnalyzerType);
 				
 		MetricsExporter exporter = new MetricsExporter();
 		exporter.writeFile(outputFileType, metrics, outputFilePath);
