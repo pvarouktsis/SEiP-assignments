@@ -16,11 +16,10 @@ import java.util.Map;
  *
  */
 public class SourceCodeAnalyzer {
-	
 	private SourceFileReader fileReader;
 	
 	public SourceCodeAnalyzer(String fileReaderType) {
-		this.fileReader = new SourceFileReader(fileReaderType);
+		this.fileReader = new SourceFileReaderFactory(fileReaderType).initializeSourceFileReader();
 	}
 
 	public Map<String, Integer> calculateMetrics(String filepath, String analyzerType) throws IOException{
@@ -29,7 +28,7 @@ public class SourceCodeAnalyzer {
 		Metric nomm = new NOMMetric();
 		int loc, noc, nom;
 		loc = noc = nom = -1;
-		Map<String, Integer> metrics = new HashMap<>();
+		Map<String, Integer> metrics = new HashMap<String, Integer>();
 
 		if(analyzerType.equals("regex")) {
 			String sourceCodeString = fileReader.readFileIntoString(filepath);

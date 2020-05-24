@@ -28,7 +28,7 @@ public class DemoClient {
 
 		// main code
 		SourceCodeAnalyzer analyzer = new SourceCodeAnalyzer(sourceFileLocation);
-		Map<String, Integer> metrics = new HashMap<>();
+		Map<String, Integer> metrics = new HashMap<String, Integer>();
 		metrics = analyzer.calculateMetrics(filepath, sourceCodeAnalyzerType);
 				
 		MetricsExporter exporter = new MetricsExporter();
