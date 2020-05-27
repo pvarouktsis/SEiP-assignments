@@ -25,12 +25,10 @@ public class DemoClient {
 			System.exit(1);
 		}
 
-		// main code
 		Map<String, Integer> metrics = new HashMap<String, Integer>();
-		SourceCodeAnalyzer analyzer = new SourceCodeAnalyzer(sourceFilepath, sourceFileLocation, sourceCodeAnalyzerType);
-		MetricsExporter exporter = new MetricsExporter(outputFilepath, outputFileType, metrics);
+		SourceCodeAnalyzer analyzer = new SourceCodeAnalyzer(sourceFilepath, sourceFileLocation, sourceCodeAnalyzerType, outputFilepath, outputFileType);
 		metrics = analyzer.calculateMetrics();
-		exporter.exportMetrics();
+		analyzer.exportMetrics(metrics);
 	}
 
 }

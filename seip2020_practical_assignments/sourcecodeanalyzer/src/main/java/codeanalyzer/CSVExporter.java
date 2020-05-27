@@ -6,9 +6,14 @@ import java.io.IOException;
 import java.util.Map;
 
 public class CSVExporter implements Exporter {
-  
-  public void write(Map<String, Integer> metrics, String filepath) {
-    File outputFile = new File(filepath + ".csv");
+	protected String outputFilepath;
+
+	CSVExporter(String outputFilepath) {
+		this.outputFilepath = outputFilepath;
+	}
+
+  public void write(Map<String, Integer> metrics) {
+    File outputFile = new File(outputFilepath + ".csv");
 		StringBuilder metricsNames = new StringBuilder();
 		StringBuilder metricsValues = new StringBuilder();
 		

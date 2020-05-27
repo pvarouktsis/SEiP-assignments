@@ -16,13 +16,23 @@ import java.util.Map;
  *
  */
 public class SourceCodeAnalyzer {
-	private SourceFileReader fileReader;
-	
-	public SourceCodeAnalyzer(String fileReaderType) {
-		this.fileReader = new SourceFileReaderFactory(fileReaderType).initializeSourceFileReader();
+	protected String sourceFilepath;
+	protected String sourceFileLocation;
+	protected String sourceCodeAnalyzerType;
+	protected String outputFilepath;
+	protected String outputFileType;
+
+	public SourceCodeAnalyzer(String sourceFilepath, String sourceFileLocation, String sourceCodeAnalyzerType, String outputFilepath, String outputFileType) {
+		this.sourceFilepath = sourceFilepath;
+		this.sourceFileLocation = sourceFileLocation;
+		this.sourceCodeAnalyzerType = sourceCodeAnalyzerType;
+		this.outputFilepath = outputFilepath;
+		this.outputFileType = outputFileType;
 	}
 
-	public Map<String, Integer> calculateMetrics(String filepath, String analyzerType) throws IOException{
+	public Map<String, Integer> calculateMetrics() throws IOException {
+		SourceFileReaderFactory sfrf = new SourceFileReaderFactory(sourceFilepath, sourceFileLocation);
+		SourceFileReader sfr = sfrf.initializeSourceFileReader();
 		Metric locm = new LOCMetric();
 		Metric nocm = new NOCMetric();
 		Metric nomm = new NOMMetric();
@@ -30,13 +40,13 @@ public class SourceCodeAnalyzer {
 		loc = noc = nom = -1;
 		Map<String, Integer> metrics = new HashMap<String, Integer>();
 
-		if(analyzerType.equals("regex")) {
-			String sourceCodeString = fileReader.readFileIntoString(filepath);
+		if(sourceCodeAnalyzerType.equals("regex")) {
+			String sourceCodeString = sfr.readFileIntoString();
 			loc = locm.calculateWithRegex(sourceCodeString);
 			noc = nocm.calculateWithRegex(sourceCodeString);
 			nom = nomm.calculateWithRegex(sourceCodeString);
-		} else if(analyzerType.equals("strcomp")) {
-			List<String> sourceCodeString = fileReader.readFileIntoList(filepath);
+		} else if(sourceCodeAnalyzerType.equals("strcomp")) {
+			List<String> sourceCodeString = sfr.readFileIntoList();
 			loc = locm.calculateWithStrcomp(sourceCodeString);
 			noc = nocm.calculateWithStrcomp(sourceCodeString);
 			nom = nomm.calculateWithStrcomp(sourceCodeString);	
@@ -47,4 +57,11 @@ public class SourceCodeAnalyzer {
 		metrics.put("NOM", nom);
 		return metrics;
 	}
+
+	public void exportMetrics(Map<String, Integer> metrics) {
+		ExporterFactory ef = new ExporterFactory();
+		Exporter ex = ef.initializeExporter(outputFilepath, outputFileType);
+		ex.write(metrics);
+	}
+
 }

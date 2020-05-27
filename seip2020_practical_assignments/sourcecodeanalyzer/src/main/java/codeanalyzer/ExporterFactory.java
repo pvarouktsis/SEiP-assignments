@@ -8,21 +8,16 @@ package codeanalyzer;
  *
  */
 public class ExporterFactory {
-  String type;
-
-  public ExporterFactory(String type) {
-    this.type = type;
-  }
-  
-  public Exporter initializeExporter() {
-    Exporter ex = null;
-    if(type.equals("csv")) {
-      ex = new CSVExporter();
-    } else if (type.equals("json")) {
-      ex = new JSONExporter();
+  public Exporter initializeExporter(String outputFilepath, String outputFileType) {
+    Exporter exporter;
+    if(outputFileType.equals("csv")) {
+      exporter = new CSVExporter(outputFilepath);
+    } else if (outputFileType.equals("json")) {
+      exporter = new JSONExporter(outputFilepath);
     } else {
-      throw new IllegalArgumentException("Uknown type: " + type);
+      throw new IllegalArgumentException("Uknown type: " + outputFileType);
     }
-    return ex;
+    return exporter;
   }
+
 }
