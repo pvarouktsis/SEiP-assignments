@@ -23,7 +23,7 @@ public class DemoClient {
 			System.exit(1);
 		}
 
-		SourceCodeAnalyzer analyzer = new SourceCodeAnalyzer(
+		Analyzer analyzer = new Analyzer(
 			sourceFilepath, 
 			sourceFileLocation, 
 			sourceCodeAnalyzerType, 

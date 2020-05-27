@@ -15,23 +15,19 @@ import java.util.Map;
  * @author agkortzis
  *
  */
-public class SourceCodeAnalyzer {
+public class Analyzer {
 	protected String sourceFilepath;
 	protected String sourceFileLocation;
 	protected String sourceCodeAnalyzerType;
 	protected String outputFilepath;
 	protected String outputFileType;
 
-	public SourceCodeAnalyzer(String sourceFilepath, String sourceFileLocation, String sourceCodeAnalyzerType, String outputFilepath, String outputFileType) {
+	public Analyzer(String sourceFilepath, String sourceFileLocation, String sourceCodeAnalyzerType, String outputFilepath, String outputFileType) {
 		this.sourceFilepath = sourceFilepath;
 		this.sourceFileLocation = sourceFileLocation;
 		this.sourceCodeAnalyzerType = sourceCodeAnalyzerType;
 		this.outputFilepath = outputFilepath;
 		this.outputFileType = outputFileType;
-	}
-
-	public void execute() throws IOException {
-		exportMetrics(calculateMetrics()); // calculate and export metrics
 	}
 
 	public Map<String, Integer> calculateMetrics() throws IOException {
@@ -66,6 +62,10 @@ public class SourceCodeAnalyzer {
 		ExporterFactory ef = new ExporterFactory();
 		Exporter ex = ef.initializeExporter(outputFilepath, outputFileType);
 		ex.write(metrics);
+	}
+	
+	public void execute() throws IOException {
+		exportMetrics(calculateMetrics()); // calculate and export metrics
 	}
 
 }
