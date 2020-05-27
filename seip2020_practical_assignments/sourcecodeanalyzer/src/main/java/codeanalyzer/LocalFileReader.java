@@ -18,10 +18,15 @@ import java.util.List;
  * @throws IOException
  */
 public class LocalFileReader implements SourceFileReader {
-  
-  public String readFileIntoString(String filepath) throws IOException {
+  protected String sourceFilepath;
+
+  public LocalFileReader(String sourceFilepath) {
+    this.sourceFilepath = sourceFilepath;
+  }
+
+  public String readFileIntoString() throws IOException {
     StringBuilder sb = new StringBuilder();
-    File file = new File(filepath);
+    File file = new File(sourceFilepath);
     BufferedReader reader = new BufferedReader(new FileReader(file));
     String line = null;
     while ((line = reader.readLine()) != null) {
@@ -31,9 +36,9 @@ public class LocalFileReader implements SourceFileReader {
     return sb.toString();
   }
 
-  public List<String> readFileIntoList(String filepath) throws IOException {
+  public List<String> readFileIntoList() throws IOException {
     List<String> lines = new ArrayList<>();
-    File file = new File(filepath);
+    File file = new File(sourceFilepath);
     BufferedReader reader = new BufferedReader(new FileReader(file));
     String line = null;
     while ((line = reader.readLine()) != null) {

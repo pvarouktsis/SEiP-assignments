@@ -10,8 +10,8 @@ import java.util.List;
  * @author agkortzis
  *
  */
-interface SourceFileReader {
+public interface SourceFileReader {
+	public String readFileIntoString() throws IOException;
+	public List<String> readFileIntoList() throws IOException;
 	
-	public String readFileIntoString(String filepath) throws IOException;
-	public List<String> readFileIntoList(String filepath) throws IOException;
 }

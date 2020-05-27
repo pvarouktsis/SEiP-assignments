@@ -18,10 +18,15 @@ import java.util.List;
  * @throws IOException
  */
 public class WebFileReader implements SourceFileReader {
+  protected String sourceFilepath;
 
-  public String readFileIntoString(String filepath) throws IOException {
+  public WebFileReader(String sourceFilepath) {
+    this.sourceFilepath = sourceFilepath;
+  }
+
+  public String readFileIntoString() throws IOException {
     StringBuilder sb = new StringBuilder();
-    URL url = new URL(filepath);
+    URL url = new URL(sourceFilepath);
     BufferedReader reader = new BufferedReader(new InputStreamReader(url.openStream()));
     String line = null;
     while ((line = reader.readLine()) != null) {
@@ -31,9 +36,9 @@ public class WebFileReader implements SourceFileReader {
     return sb.toString();
   }
 
-  public List<String> readFileIntoList(String filepath) throws IOException {
+  public List<String> readFileIntoList() throws IOException {
     List<String> lines = new ArrayList<>();
-    URL url = new URL(filepath);
+    URL url = new URL(sourceFilepath);
     BufferedReader reader = new BufferedReader(new InputStreamReader(url.openStream()));
     String line = null;
     while ((line = reader.readLine()) != null) {

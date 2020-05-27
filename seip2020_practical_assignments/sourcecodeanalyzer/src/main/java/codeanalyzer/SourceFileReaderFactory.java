@@ -1,20 +1,16 @@
 package codeanalyzer;
 
 public class SourceFileReaderFactory {
-  
-  private String type;
-
-  public SourceFileReaderFactory(String type) {
-    this.type = type;
-  }
-
-  public SourceFileReader initializeSourceFileReader() {
+  public SourceFileReader initializeSourceFileReader(String sourceFilepath, String sourceFileLocation) {
     SourceFileReader sfr = null;
-    if(type.equals("local")) {
-      sfr = new LocalFileReader();
-    } else if(type.equals("web")) {
-      sfr = new WebFileReader();
+    if(sourceFileLocation.equals("local")) {
+      sfr = new LocalFileReader(sourceFilepath);
+    } else if(sourceFileLocation.equals("web")) {
+      sfr = new WebFileReader(sourceFilepath);
+    } else {
+      throw new IllegalArgumentException("Unknown type: " + sourceFileLocation);
     }
     return sfr;
   }
+
 }
