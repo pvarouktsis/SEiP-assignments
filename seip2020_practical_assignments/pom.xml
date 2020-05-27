@@ -58,6 +58,6 @@
   <modules>
     <module>gradeshistogram</module>
     <module>unittesting</module>
-    <module>SourceCodeAnalyzer</module>
+    <module>sourcecodeanalyzer</module>
   </modules>
 </project>
