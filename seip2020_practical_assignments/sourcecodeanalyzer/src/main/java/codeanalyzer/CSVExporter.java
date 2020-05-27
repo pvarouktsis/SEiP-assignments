@@ -5,13 +5,31 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Map;
 
+/**
+ * Exports a CSV file at the specified outputFilepath 
+ * that contains the metrics.
+ * @author pvarouktsis
+ * 
+ */
 public class CSVExporter implements Exporter {
 	protected String outputFilepath;
 
+	/**
+	 * Initializes the outputFilepath.
+	 * @param outputFilepath, the path of the output file
+	 */
 	public CSVExporter(String outputFilepath) {
 		this.outputFilepath = outputFilepath;
 	}
 
+	/**
+	 * Creates the specified CSV file and writes
+	 * the results of the metrics, appending each time a comma
+	 * to change column. The first row 
+	 * contains the names of the metrics and the second
+	 * the values of them.
+	 * @param metrics, the metrics (loc, nom, noc)
+	 */
   public void write(Map<String, Integer> metrics) {
     File outputFile = new File(outputFilepath + ".csv");
 		StringBuilder metricsNames = new StringBuilder();

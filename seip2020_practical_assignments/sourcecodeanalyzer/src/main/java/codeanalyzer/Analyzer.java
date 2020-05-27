@@ -25,7 +25,7 @@ public class Analyzer {
 
 	/**
 	 * Initializes the necessary instances for
-	 * analyzer.
+	 * Analyzer.
 	 * @param sourceFilepath, the path of the Java file
 	 * @param sourceFileLocation, web or local
 	 * @param sourceCodeAnalyzerType, regex or strcomp
