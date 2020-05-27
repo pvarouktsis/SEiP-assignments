@@ -8,22 +8,28 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Reads a file and returns its content in a List
- * @param fileReaderType the location of a file 
- * (<b>local</b> for locally stored files, 
- * <b>web</b> for files stored on the web). 
- * @param filepath the url of the file
- * @return a List that contains the contents of the file 
- * or null if the type is neither <b>local</b> nor <b>web</b>
- * @throws IOException
+ * Retrieves (reads) the contents of a given local file
+ * and stores them either in a String or a List.
+ * @author pvarouktsis
+ * 
  */
 public class LocalFileReader implements SourceFileReader {
   protected String sourceFilepath;
 
+  /**
+   * Initializes the instance variable sourceFilepath.
+   * @param sourceFilepath, the path of the input file
+   */
   public LocalFileReader(String sourceFilepath) {
     this.sourceFilepath = sourceFilepath;
   }
 
+  /**
+   * Reads a local file and returns its content 
+   * in a single String.
+   * @return a String that contains the contents of the file
+   * @throws IOException
+   */
   public String readFileIntoString() throws IOException {
     StringBuilder sb = new StringBuilder();
     File file = new File(sourceFilepath);
@@ -36,6 +42,12 @@ public class LocalFileReader implements SourceFileReader {
     return sb.toString();
   }
 
+  /**
+   * Reads a local file and returns its content
+   * in a List.
+   * @return a List that contains the contents of the file 
+   * @throws IOException
+   */
   public List<String> readFileIntoList() throws IOException {
     List<String> lines = new ArrayList<>();
     File file = new File(sourceFilepath);

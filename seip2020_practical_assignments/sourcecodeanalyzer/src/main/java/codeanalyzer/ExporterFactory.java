@@ -3,10 +3,6 @@ package codeanalyzer;
 /**
  * A factory class to initialize an Export object
  * based on the outputFileType.
- * 
- * Exports (writes) the metrics to a given output.
- * The output can be CSV or JSON files.
- * This class deliberately contains code smells and violations of design principles. 
  * @author agkortzis
  * @author pvarouktsis
  * 
