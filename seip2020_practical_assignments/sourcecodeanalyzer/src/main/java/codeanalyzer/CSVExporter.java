@@ -8,7 +8,7 @@ import java.util.Map;
 public class CSVExporter implements Exporter {
 	protected String outputFilepath;
 
-	CSVExporter(String outputFilepath) {
+	public CSVExporter(String outputFilepath) {
 		this.outputFilepath = outputFilepath;
 	}
 

@@ -30,9 +30,13 @@ public class SourceCodeAnalyzer {
 		this.outputFileType = outputFileType;
 	}
 
+	public void execute() throws IOException {
+		exportMetrics(calculateMetrics()); // calculate and export metrics
+	}
+
 	public Map<String, Integer> calculateMetrics() throws IOException {
-		SourceFileReaderFactory sfrf = new SourceFileReaderFactory(sourceFilepath, sourceFileLocation);
-		SourceFileReader sfr = sfrf.initializeSourceFileReader();
+		SourceFileReaderFactory sfrf = new SourceFileReaderFactory();
+		SourceFileReader sfr = sfrf.initializeSourceFileReader(sourceFilepath, sourceFileLocation);
 		Metric locm = new LOCMetric();
 		Metric nocm = new NOCMetric();
 		Metric nomm = new NOMMetric();

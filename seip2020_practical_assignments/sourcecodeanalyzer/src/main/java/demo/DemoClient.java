@@ -1,8 +1,6 @@
 package demo;
 
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
 
 import codeanalyzer.*;
 
@@ -25,10 +23,14 @@ public class DemoClient {
 			System.exit(1);
 		}
 
-		Map<String, Integer> metrics = new HashMap<String, Integer>();
-		SourceCodeAnalyzer analyzer = new SourceCodeAnalyzer(sourceFilepath, sourceFileLocation, sourceCodeAnalyzerType, outputFilepath, outputFileType);
-		metrics = analyzer.calculateMetrics();
-		analyzer.exportMetrics(metrics);
+		SourceCodeAnalyzer analyzer = new SourceCodeAnalyzer(
+			sourceFilepath, 
+			sourceFileLocation, 
+			sourceCodeAnalyzerType, 
+			outputFilepath, 
+			outputFileType
+		);
+		analyzer.execute();
 	}
 
 }
