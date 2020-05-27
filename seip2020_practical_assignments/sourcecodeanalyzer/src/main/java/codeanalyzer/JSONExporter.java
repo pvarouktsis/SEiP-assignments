@@ -7,7 +7,7 @@ import java.util.Map;
 
 /**
  * Exports a JSON file at the specified outputFilepath 
- * that contains the metrics.
+ * to write the results of the metrics.
  * @author pvarouktsis
  * 
  */

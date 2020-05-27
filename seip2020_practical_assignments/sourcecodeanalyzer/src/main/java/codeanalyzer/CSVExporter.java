@@ -7,7 +7,7 @@ import java.util.Map;
 
 /**
  * Exports a CSV file at the specified outputFilepath 
- * that contains the metrics.
+ * to write the results of the metrics.
  * @author pvarouktsis
  * 
  */

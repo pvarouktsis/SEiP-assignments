@@ -6,7 +6,6 @@ import java.util.List;
 /**
  * An interface to implement different type of
  * SourceFileReader.
- * This class deliberately contains code smells and violations of design principles. 
  * @author agkortzis
  * @author pvarouktsis
  */

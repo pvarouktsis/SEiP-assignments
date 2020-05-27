@@ -42,7 +42,9 @@ public class Analyzer {
 
 	/**
 	 * Calculates source code metrics (loc, nom, noc) based on 
-	 * the sourceCodeAnalyzerType, regex or strcomp. 
+	 * the sourceCodeAnalyzerType, regex or strcomp. If 
+	 * sourceCodeAnalyzerType is regex reads the given file as
+	 * a String, else if is strcomp reads the given file as a List.
 	 * @return a Map that contains the name and the value of
 	 * each metric analyzed
 	 * @throws IOException

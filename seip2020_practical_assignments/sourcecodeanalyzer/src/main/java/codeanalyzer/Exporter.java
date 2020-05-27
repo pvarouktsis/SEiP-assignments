@@ -4,7 +4,7 @@ import java.util.Map;
 
 /**
  * An interface to implement different 
- * type of exporters.
+ * types of exporters.
  * @author pvarouktsis
  * 
  */

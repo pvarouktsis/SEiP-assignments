@@ -6,7 +6,7 @@ import java.util.regex.Pattern;
 
 /**
  * Calculates the number of classes (NOC) in
- * the given source code file using two method,
+ * the given source code file using two methods,
  * regex and strcomp.
  * @author pvaroutksis
  * 
