@@ -13,5 +13,5 @@ import java.util.List;
 public interface SourceFileReader {
 	public String readFileIntoString() throws IOException;
 	public List<String> readFileIntoList() throws IOException;
-	
+
 }
