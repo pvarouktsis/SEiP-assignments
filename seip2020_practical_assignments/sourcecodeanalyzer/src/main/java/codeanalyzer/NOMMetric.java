@@ -5,7 +5,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class NOMMetric implements Metric {
-
   public int calculateWithRegex(String sourceCodeString) {
     Pattern pattern = Pattern.compile(".*(public |protected |private |static )?[\\w\\<\\>\\[\\]]+\\s+(\\w+) *\\([^\\)]*\\) *(\\{?|[^;]).*"); 
 	  Matcher methodSignatures = pattern.matcher(sourceCodeString);
@@ -27,4 +26,5 @@ public class NOMMetric implements Metric {
     }
     return nom; 
   }
+
 }

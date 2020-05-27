@@ -5,7 +5,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class LOCMetric implements Metric {
-
   public int calculateWithRegex(String sourceCodeString) {
     Pattern pattern = Pattern.compile("((//.*)|(/\\*.*)|(\\*+.*))");
     Matcher nonCodeLinesMatcher = pattern.matcher(sourceCodeString);
@@ -29,4 +28,5 @@ public class LOCMetric implements Metric {
     int loc = sourceCodeList.size() - nonCodeLinesCounter;
     return loc;
   }
+
 }
