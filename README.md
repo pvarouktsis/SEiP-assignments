@@ -9,6 +9,7 @@ is basen on [Java](https://www.oracle.com/java/technologies/javase-downloads.htm
 ## Modules
 - [Histogram Generator](./seip2020_practical_assignments/gradeshistogram/)
 - [Unit Testing](./seip2020_practical_assignments/unittesting/)
+- [Source Code Analyzer](./seip2020_practical_assignments/sourcecodeanalyzer/)
 
 ## Built with
 - [Maven](https://maven.apache.org/) \- Dependency Management
