@@ -12,7 +12,7 @@ import java.util.Map;
  * 
  */
 public class CSVExporter implements Exporter {
-	protected String outputFilepath;
+	private String outputFilepath;
 
 	/**
 	 * Initializes the outputFilepath.

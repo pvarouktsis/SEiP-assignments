@@ -17,11 +17,11 @@ import java.util.Map;
  * 
  */
 public class Analyzer {
-	protected String sourceFilepath;
-	protected String sourceFileLocation;
-	protected String sourceCodeAnalyzerType;
-	protected String outputFilepath;
-	protected String outputFileType;
+	private String sourceFilepath;
+	private String sourceFileLocation;
+	private String sourceCodeAnalyzerType;
+	private String outputFilepath;
+	private String outputFileType;
 
 	/**
 	 * Initializes the necessary instances for

@@ -14,7 +14,7 @@ import java.util.List;
  * 
  */
 public class LocalFileReader implements SourceFileReader {
-  protected String sourceFilepath;
+  private String sourceFilepath;
 
   /**
    * Initializes the instance variable sourceFilepath.

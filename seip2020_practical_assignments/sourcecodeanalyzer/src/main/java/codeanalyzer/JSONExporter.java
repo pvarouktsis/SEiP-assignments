@@ -12,7 +12,7 @@ import java.util.Map;
  * 
  */
 public class JSONExporter implements Exporter {
-  protected String outputFilepath;
+  private String outputFilepath;
 
   public JSONExporter(String outputFilepath) {
     this.outputFilepath = outputFilepath;
