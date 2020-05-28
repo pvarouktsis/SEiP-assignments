@@ -17,7 +17,7 @@ public class LOCMetricTest {
   }
   
   @Test
-	public void testCalculateStrCompLOC() throws IOException {
+	public void testCalculateStrcomp() throws IOException {
     List<String> testSourceCodeList = lfr.readFileIntoList();
 		assertEquals(7, locm.calculateWithStrcomp(testSourceCodeList));
 	}
