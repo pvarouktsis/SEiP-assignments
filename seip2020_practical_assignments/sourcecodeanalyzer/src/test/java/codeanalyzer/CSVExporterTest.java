@@ -8,12 +8,12 @@ import org.junit.Assert;
 import org.junit.Test;
 
 public class CSVExporterTest {
-  String outputFilepath = "src/test/resources/output_metrics";
-  CSVExporter csve = new CSVExporter(outputFilepath);
+  private String outputFilepath = "src/test/resources/output_metrics";
+  private CSVExporter csve = new CSVExporter(outputFilepath);
   	
 	@Test
 	public void testWriteCsv() {
-		// create the metrics content
+		// create the metrics' content
 		Map<String, Integer> metrics = new HashMap<>();
 		metrics.put("loc",30);
 		metrics.put("nom",5);

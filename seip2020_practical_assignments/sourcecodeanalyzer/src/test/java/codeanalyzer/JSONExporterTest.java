@@ -5,15 +5,17 @@ import java.util.Map;
 
 import org.junit.Test;
 
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.spy;
+import static org.mockito.Mockito.doCallRealMethod;
+import static org.mockito.Mockito.verify; 
 
 public class JSONExporterTest {
-  String outputFilepath = "whatever-path";
+	private String outputFilepath = "whatever-path";
+	private JSONExporter jsone = new JSONExporter(outputFilepath);
 
   @Test
 	public void testWriteJson() {
-    JSONExporter jsone = new JSONExporter(outputFilepath);
-		JSONExporter spye = spy(jsone);
+    JSONExporter spye = spy(jsone);
 
     // create an empty metrics content
 		Map<String, Integer> metrics = new HashMap<>();
