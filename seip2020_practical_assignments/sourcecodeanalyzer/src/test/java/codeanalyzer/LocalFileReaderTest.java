@@ -6,7 +6,8 @@ import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.util.List;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertArrayEquals;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
@@ -24,7 +25,7 @@ public class LocalFileReaderTest {
 	
 	@Test
 	public void testReadFileIntoListLocal() throws IOException {
-		//read a locally stored file into a List
+		// reads a locally stored file into a List
 		lfr = new LocalFileReader(TEST_CLASS_LOCAL);
 		List<String> actualList = lfr.readFileIntoList();
 		
@@ -36,7 +37,7 @@ public class LocalFileReaderTest {
 	
 	@Test
 	public void testReadFileIntoStringLocal() throws IOException {
-		//read a locally stored file into a String
+		// reads a locally stored file into a String
 		lfr = new LocalFileReader(TEST_CLASS_LOCAL);
 		String actualString = lfr.readFileIntoString();
     
