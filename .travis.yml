@@ -25,8 +25,8 @@ script:
   - mvn package jacoco:report
 
 after_success:
-  - cd ./../resources/
-  - ./test.sh
-  - if ["$(exif ... | tail -1)" == "[FAILED] Integration Test of Source Code Analyzer"]; then exit 1;
+  - cd ./../
+  - cd ./resources/ 
+  - ./test.sh > test_outputs.txt
+  - if ["$(cat test_outputs.txt | grep 'FAILED')" != ""]; then rm test_outputs.txt; exit 1; else; rm test_outputs.txt; echo "Process terminated successfully"; fi
   - bash <(curl -s https://codecov.io/bash)
-  - echo "Process terminated successfully"
