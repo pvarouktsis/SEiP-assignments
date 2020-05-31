@@ -1,7 +1,7 @@
 language: java
 jdk: 
   - openjdk11
- # - oraclejdk9
+  # - oraclejdk9
 
 branches:
   only:
@@ -26,7 +26,7 @@ script:
 
 after_success:
   - cd ./../
-  - cd ./resources/ 
-  - ./test.sh > test_outputs.txt
+  - cd ./test/ 
+  - ./test_sca.sh > test_outputs.txt
   - if cat test_outputs.txt | grep "FAILED"; then rm test_outputs.txt; exit 1; else rm test_outputs.txt; echo "Process terminated successfully"; fi
   - bash <(curl -s https://codecov.io/bash)
