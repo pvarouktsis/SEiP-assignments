@@ -19,8 +19,7 @@ then
   echo "[PASSED] Integration Test of Source Code Analyzer"
 else
   echo "[FAILED] Integration Test of Source Code Analyzer"
-  exit 1
 fi
 
-rm outputs.csv 
+rm outputs.csv
 rm $TEST_FILE
