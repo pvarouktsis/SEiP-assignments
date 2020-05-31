@@ -41,7 +41,7 @@ Install [Java](https://www.oracle.com/java/technologies/javase-downloads.html) a
 &nbsp;
 # Module's Architecture
 ## UML Diagram
-![diagram](../../resources/UML_source_code_analyzer.svg)
+![uml_diagram](../../.resources/UML_source_code_analyzer.svg)
 
 ## Patterns
 - ### Facade Pattern  
