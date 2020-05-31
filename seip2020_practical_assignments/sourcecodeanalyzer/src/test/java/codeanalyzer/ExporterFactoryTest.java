@@ -14,7 +14,13 @@ public class ExporterFactoryTest {
   }
 
   @Test
-  public void testInitializeExporter_LocalType() {
+  public void testInitializeExporter_CSVType() {
     // TODO
   }
+
+  @Test
+  public void testInitializeExporter_JSONType() {
+    // TODO
+  }
+
 }

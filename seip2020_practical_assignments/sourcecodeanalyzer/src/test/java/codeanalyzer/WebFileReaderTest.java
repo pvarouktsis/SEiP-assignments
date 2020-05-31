@@ -19,13 +19,13 @@ public class WebFileReaderTest {
 
   @BeforeClass
 	public static void setUp() throws IOException {
-		expectedList = Files.readAllLines(new File("src/test/resources/TestClass.java").toPath(), Charset.defaultCharset()); // reads a local file
+		expectedList = Files.readAllLines(new File("src/test/resources/TestClass.java").toPath(), Charset.defaultCharset()); // reads the local file
 		expectedString = String.join("\n", expectedList) + "\n"; // transforms a list into a String (with 'new line' as delimiter) 
 	}
 
   @Test
 	public void testReadFileIntoListWeb() throws IOException {
-    //reads a web stored file into a List    
+    // reads a web stored file into a List    
 		wfr = new WebFileReader(TEST_CLASS_WEB);
 		List<String> actualList = wfr.readFileIntoList();
 		

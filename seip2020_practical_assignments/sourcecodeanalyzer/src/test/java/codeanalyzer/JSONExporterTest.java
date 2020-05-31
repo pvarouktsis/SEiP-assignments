@@ -4,7 +4,6 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.junit.Test;
-
 import static org.mockito.Mockito.spy;
 import static org.mockito.Mockito.doCallRealMethod;
 import static org.mockito.Mockito.verify; 

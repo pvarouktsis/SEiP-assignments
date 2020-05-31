@@ -18,4 +18,9 @@ public class SourceFileReaderFactoryTest {
     // TODO
   }
 
+  @Test 
+  public void testInitializeSourceFileReader_WebType() {
+    // TODO
+  }
+
 }
