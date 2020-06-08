@@ -1,6 +1,6 @@
 language: java
 jdk: 
-  - openjdk8
+  - openjdk11
   # - oraclejdk9
 
 branches:
@@ -25,6 +25,8 @@ script:
   - mvn package jacoco:report
 
 after_success:
+  - cd ./../
+  - cd ./test/ 
+  - ./test_sca.sh > test_outputs.txt
+  - if cat test_outputs.txt | grep "FAILED"; then rm test_outputs.txt; exit 1; else rm test_outputs.txt; echo "Process terminated successfully"; fi
   - bash <(curl -s https://codecov.io/bash)
-  - echo "Process terminated successfully"
-
