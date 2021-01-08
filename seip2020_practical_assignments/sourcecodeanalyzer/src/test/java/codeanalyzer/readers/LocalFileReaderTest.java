@@ -1,4 +1,4 @@
-package codeanalyzer;
+package codeanalyzer.readers;
 
 import java.io.File;
 import java.io.IOException;
@@ -12,7 +12,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 public class LocalFileReaderTest {
-  private LocalFileReader lfr = null;
+  	private LocalFileReader lfr = null;
 	private static List<String> expectedList;
 	private static String expectedString;
 	private final static String TEST_CLASS_LOCAL = "src/test/resources/TestClass.java";
@@ -40,11 +40,11 @@ public class LocalFileReaderTest {
 		// reads a locally stored file into a String
 		lfr = new LocalFileReader(TEST_CLASS_LOCAL);
 		String actualString = lfr.readFileIntoString();
-    
-    String expected = expectedString;
-    String actual = actualString;
+	    
+	    String expected = expectedString;
+	    String actual = actualString;
 
-    assertEquals(expected, actual);
-  }
+	    assertEquals(expected, actual);
+	 }
 
 }

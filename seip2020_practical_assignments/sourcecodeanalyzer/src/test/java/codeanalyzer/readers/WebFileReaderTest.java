@@ -1,4 +1,4 @@
-package codeanalyzer;
+package codeanalyzer.readers;
 
 import java.io.File;
 import java.io.IOException;
@@ -12,20 +12,20 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 public class WebFileReaderTest {
-  private WebFileReader wfr = null;
+  	private WebFileReader wfr = null;
 	private static List<String> expectedList;
 	private static String expectedString;
-  private final static String TEST_CLASS_WEB = "https://drive.google.com/uc?export=download&id=1z51FZXqPyun4oeB7ERFlOgfcoDfLLLhg";
+  	private final static String TEST_CLASS_WEB = "https://drive.google.com/uc?export=download&id=1z51FZXqPyun4oeB7ERFlOgfcoDfLLLhg";
 
-  @BeforeClass
+  	@BeforeClass
 	public static void setUp() throws IOException {
 		expectedList = Files.readAllLines(new File("src/test/resources/TestClass.java").toPath(), Charset.defaultCharset()); // reads the local file
 		expectedString = String.join("\n", expectedList) + "\n"; // transforms a list into a String (with 'new line' as delimiter) 
 	}
 
-  @Test
+  	@Test
 	public void testReadFileIntoListWeb() throws IOException {
-    // reads a web stored file into a List    
+    	// reads a web stored file into a List    
 		wfr = new WebFileReader(TEST_CLASS_WEB);
 		List<String> actualList = wfr.readFileIntoList();
 		
@@ -38,11 +38,11 @@ public class WebFileReaderTest {
 	@Test
 	public void testReadFileIntoStringWeb() throws IOException {
 		// reads a web stored file into a String
-    wfr = new WebFileReader(TEST_CLASS_WEB);
-    String actualString = wfr.readFileIntoString();
-    
-    String expected = expectedString;
-    String actual = actualString;
+	    wfr = new WebFileReader(TEST_CLASS_WEB);
+	    String actualString = wfr.readFileIntoString();
+	    
+	    String expected = expectedString;
+	    String actual = actualString;
 				
 		assertEquals(expected, actual);
 	}

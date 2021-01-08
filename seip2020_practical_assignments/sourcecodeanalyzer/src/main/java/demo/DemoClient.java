@@ -2,7 +2,7 @@ package demo;
 
 import java.io.IOException;
 
-import codeanalyzer.*;
+import codeanalyzer.AnalyzerFacade;
 
 public class DemoClient {
 	public static void main(String[] args) throws IOException {
@@ -23,14 +23,14 @@ public class DemoClient {
 			System.exit(1);
 		}
 
-		Analyzer analyzer = new Analyzer(
+		AnalyzerFacade af = new AnalyzerFacade(
 			sourceFilepath, 
 			sourceFileLocation, 
 			sourceCodeAnalyzerType, 
 			outputFilepath, 
 			outputFileType
 		);
-		analyzer.execute();
+		af.execute();
 	}
 
 }

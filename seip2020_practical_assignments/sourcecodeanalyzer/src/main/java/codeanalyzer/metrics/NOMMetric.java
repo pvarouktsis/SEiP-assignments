@@ -1,4 +1,4 @@
-package codeanalyzer;
+package codeanalyzer.metrics;
 
 import java.util.List;
 import java.util.regex.Matcher;
@@ -35,7 +35,7 @@ public class NOMMetric implements Metric {
   public int calculateWithStrcomp(List<String> sourceCodeList) {
     int nom = 0;
     for (String line : sourceCodeList) {
-      line = line.strip(); // remove leading and trailing white spaces
+      line = line.trim(); // remove leading and trailing white spaces
       if ( ((line.contains("public") || line.contains("private") || line.contains("protected"))
           || line.contains("void") || line.contains("int") || line.contains("String"))
         && line.contains("(") && line.contains(")") && line.contains("{") )

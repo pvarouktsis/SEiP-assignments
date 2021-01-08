@@ -1,4 +1,4 @@
-package codeanalyzer;
+package codeanalyzer.metrics;
 
 import java.util.List;
 import java.util.regex.Matcher;
@@ -35,7 +35,7 @@ public class NOCMetric implements Metric {
   public int calculateWithStrcomp(List<String> sourceCodeList) {
     int noc = 0;
     for (String line : sourceCodeList) {
-      line = line.strip(); // remove leading and trailing white spaces
+      line = line.trim(); // remove leading and trailing white spaces
       if ((line.startsWith("class ") || line.contains(" class ")) && line.contains("{")) {
         noc++;
       }

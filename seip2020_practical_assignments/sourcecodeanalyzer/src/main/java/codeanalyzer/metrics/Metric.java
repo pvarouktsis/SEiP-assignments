@@ -1,4 +1,4 @@
-package codeanalyzer;
+package codeanalyzer.metrics;
 
 import java.util.List;
 
