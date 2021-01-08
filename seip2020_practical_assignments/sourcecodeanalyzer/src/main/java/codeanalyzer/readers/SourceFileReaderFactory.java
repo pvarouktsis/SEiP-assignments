@@ -1,4 +1,4 @@
-package codeanalyzer;
+package codeanalyzer.readers;
 
 /**
  * A factory class to initialize the

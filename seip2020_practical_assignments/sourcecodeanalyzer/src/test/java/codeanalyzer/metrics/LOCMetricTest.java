@@ -1,10 +1,12 @@
-package codeanalyzer;
+package codeanalyzer.metrics;
 
 import java.io.IOException;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 import org.junit.Test;
+
+import codeanalyzer.readers.LocalFileReader;
 
 public class LOCMetricTest {
   private LOCMetric locm = new LOCMetric();

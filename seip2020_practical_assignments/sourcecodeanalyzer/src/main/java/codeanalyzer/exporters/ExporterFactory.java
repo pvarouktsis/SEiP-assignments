@@ -1,4 +1,4 @@
-package codeanalyzer;
+package codeanalyzer.exporters;
 
 /**
  * A factory class to initialize an Export object

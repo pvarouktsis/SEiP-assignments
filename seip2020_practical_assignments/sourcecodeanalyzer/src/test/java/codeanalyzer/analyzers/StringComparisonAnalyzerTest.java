@@ -1,4 +1,4 @@
-package codeanalyzer;
+package codeanalyzer.analyzers;
 
 import java.io.File;
 import java.io.IOException;
@@ -9,16 +9,14 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 import org.junit.Test;
 
-public class AnalyzerTest {
+public class StringComparisonAnalyzerTest {
   private static String inputFile = "src/test/resources/TestClass.java";
   private static String inputFileLocation = "local";
-  private static String analyzerType = "regex";
   private static String outputFile = "outputs";
   private static String outputFileType = "csv";
-  private Analyzer analyzer = new Analyzer(
+  private Analyzer analyzer = new StringComparisonAnalyzer(
     inputFile,
     inputFileLocation,
-    analyzerType,
     outputFile,
     outputFileType
   );
@@ -28,7 +26,7 @@ public class AnalyzerTest {
     Map<String, Integer> expectedMetrics = new HashMap<String, Integer>();
     Map<String, Integer> actualMetrics = new HashMap<String, Integer>();
     
-    expectedMetrics.put("LOC", 21);
+    expectedMetrics.put("LOC", 7);
     expectedMetrics.put("NOM", 3);
     expectedMetrics.put("NOC", 3);
     actualMetrics = analyzer.calculateMetrics();
@@ -40,7 +38,7 @@ public class AnalyzerTest {
   public void testExportMetrics() {
     File file = new File(outputFile + ".csv");
     Map<String, Integer> metrics = new HashMap<String, Integer>();
-    metrics.put("LOC", 21);
+    metrics.put("LOC", 7);
     metrics.put("NOM", 3);
     metrics.put("NOC", 3);
     
@@ -51,4 +49,3 @@ public class AnalyzerTest {
   }
 
 }
-
