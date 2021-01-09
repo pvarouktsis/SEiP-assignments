@@ -47,4 +47,4 @@ Install [Java](https://www.oracle.com/java/technologies/javase-downloads.html) a
 - ### Facade Pattern  
 - ### Factory Pattern
 - ### Strategy Pattern 
-- ### Bridge Pattern (as canditate)
+- ### Bridge Pattern (was canditate)
