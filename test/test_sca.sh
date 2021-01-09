@@ -13,7 +13,7 @@ csv
 
 # Produce manually verify_outputs.csv
 echo "LOC,NOC,NOM," > $TEST_FILE
-echo "21,3,3," >> $TEST_FILE
+echo "7,3,3," >> $TEST_FILE
 echo "Manually test file created successfully"
 echo ""
 
