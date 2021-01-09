@@ -1,6 +1,6 @@
 # Software Engineering in Practice - Lab Assignments
-[![Build Status](https://travis-ci.com/pvarouktsis/lab-assignment-2.svg?token=czkrDp71F5Y19UwVWgqF&branch=master)](https://travis-ci.com/pvarouktsis/lab-assignment-2)
-[![codecov](https://codecov.io/gh/pvarouktsis/lab-assignment-2/branch/master/graph/badge.svg?token=10GHXIIT5Y)](https://codecov.io/gh/pvarouktsis/lab-assignment-2)
+[![Build Status](https://travis-ci.com/pvarouktsis/SEiP-assignments.svg?token=czkrDp71F5Y19UwVWgqF&branch=master)](https://travis-ci.com/pvarouktsis/SEiP-assignments)
+[![codecov](https://codecov.io/gh/pvarouktsis/SEiP-assignments/branch/master/graph/badge.svg?token=10GHXIIT5Y)](https://codecov.io/gh/pvarouktsis/SEiP-assignments)
 
 ## Description
 This is a repository for the purpose of Software Engineering in Practice Laboratories Assignments. The project
