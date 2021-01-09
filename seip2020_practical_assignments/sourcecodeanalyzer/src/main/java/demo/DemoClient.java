@@ -23,14 +23,8 @@ public class DemoClient {
 			System.exit(1);
 		}
 
-		AnalyzerFacade af = new AnalyzerFacade(
-			sourceFilepath, 
-			sourceFileLocation, 
-			sourceCodeAnalyzerType, 
-			outputFilepath, 
-			outputFileType
-		);
-		af.execute();
+		AnalyzerFacade af = new AnalyzerFacade();
+		af.execute(sourceFilepath, sourceFileLocation, sourceCodeAnalyzerType, outputFilepath, outputFileType);
 	}
 
 }
