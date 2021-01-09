@@ -28,5 +28,5 @@ after_success:
   - cd ./../
   - cd ./test/ 
   - ./test_sca.sh > test_outputs.txt
-  - if cat test_outputs.txt | grep "FAILED"; then rm test_outputs.txt; exit 1; else rm test_outputs.txt; echo "Process terminated successfully"; fi
+  - ./check_test.sh
   - bash <(curl -s https://codecov.io/bash)
