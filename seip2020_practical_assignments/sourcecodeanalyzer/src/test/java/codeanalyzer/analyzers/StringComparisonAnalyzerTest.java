@@ -29,18 +29,4 @@ public class StringComparisonAnalyzerTest {
     assertEquals(actualMetrics, expectedMetrics);
   }
 
-  // @Test
-  // public void testExportMetrics() {
-  //   File file = new File(outputFile + ".csv");
-  //   Map<String, Integer> metrics = new HashMap<String, Integer>();
-  //   metrics.put("LOC", 7);
-  //   metrics.put("NOM", 3);
-  //   metrics.put("NOC", 3);
-    
-  //   analyzer.exportMetrics(metrics);
-  //   assertTrue(file.exists());
-
-  //   file.delete();
-  // }
-
 }
