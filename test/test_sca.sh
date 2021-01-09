@@ -28,4 +28,3 @@ fi
 # Delete produced files
 rm outputs.csv
 rm $TEST_FILE
-
