@@ -9,7 +9,7 @@ public class SourceFileReaderFactoryTest {
 
   @Test (expected = IllegalArgumentException.class)
   public void testInitializeSourceFileReader_WrongType() {
-    sfrf.initializeSourceFileReader(TEST_FILE, TEST_WRONG_FILETYPE);
+    sfrf.initializeSourceFileReader(TEST_WRONG_FILETYPE);
   }
   
   @Test

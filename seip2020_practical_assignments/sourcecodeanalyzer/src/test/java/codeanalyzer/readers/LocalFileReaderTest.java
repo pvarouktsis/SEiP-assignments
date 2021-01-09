@@ -26,8 +26,8 @@ public class LocalFileReaderTest {
 	@Test
 	public void testReadFileIntoListLocal() throws IOException {
 		// reads a locally stored file into a List
-		lfr = new LocalFileReader(TEST_CLASS_LOCAL);
-		List<String> actualList = lfr.readFileIntoList();
+		lfr = new LocalFileReader();
+		List<String> actualList = lfr.readFileIntoList(TEST_CLASS_LOCAL);
 		
 		String[] expected = expectedList.stream().toArray(String[]::new);
 		String[] actual = actualList.stream().toArray(String[]::new);
@@ -38,8 +38,8 @@ public class LocalFileReaderTest {
 	@Test
 	public void testReadFileIntoStringLocal() throws IOException {
 		// reads a locally stored file into a String
-		lfr = new LocalFileReader(TEST_CLASS_LOCAL);
-		String actualString = lfr.readFileIntoString();
+		lfr = new LocalFileReader();
+		String actualString = lfr.readFileIntoString(TEST_CLASS_LOCAL);
 	    
 	    String expected = expectedString;
 	    String actual = actualString;

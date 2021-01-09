@@ -4,12 +4,11 @@ import org.junit.Test;
 
 public class ExporterFactoryTest {
   private ExporterFactory ef = new ExporterFactory();
-  private final String TEST_FILE = "whatever-file";
-  private final String TEST_FILETYPE = "whatever-type";
+  private final String TEST_WRONG_FILETYPE = "whatever-type";
 
   @Test (expected = IllegalArgumentException.class)
   public void testInitializeExporter_WrongType() {
-    ef.initializeExporter(TEST_FILE, TEST_FILETYPE);
+    ef.initializeExporter(TEST_WRONG_FILETYPE);
   }
 
   @Test

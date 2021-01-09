@@ -9,18 +9,19 @@ import org.junit.Test;
 import codeanalyzer.readers.LocalFileReader;
 
 public class NOMMetricTest {
+  private String sourceFilepath = "src/test/resources/TestClass.java";
   private NOMMetric nomm = new NOMMetric();
-  private LocalFileReader lfr = new LocalFileReader("src/test/resources/TestClass.java"); 
+  private LocalFileReader lfr = new LocalFileReader(); 
 
   @Test
 	public void testCalculateRegex() throws IOException {
-    String testSourceCodeString = lfr.readFileIntoString();
+    String testSourceCodeString = lfr.readFileIntoString(sourceFilepath);
 		assertEquals(3, nomm.calculateWithRegex(testSourceCodeString));
   }
   
   @Test
 	public void testCalculateStrcomp() throws IOException {
-    List<String> testSourceCodeList = lfr.readFileIntoList();
+    List<String> testSourceCodeList = lfr.readFileIntoList(sourceFilepath);
 		assertEquals(3, nomm.calculateWithStrcomp(testSourceCodeList));
   }
   

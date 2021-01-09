@@ -18,26 +18,19 @@ import codeanalyzer.metrics.*;
  * @author pvarouktsis
  * 
  */
-public class StringComparisonAnalyzer extends Analyzer {
-
-	/**
-	 * Initializes the necessary parent instances of the 
-	 * StringComparisonAnalyzer.
-	 */
-	public StringComparisonAnalyzer(String sourceFilepath, String sourceFileLocation, String outputFilepath, String outputFileType) {
-		super(sourceFilepath, sourceFileLocation, outputFilepath, outputFileType);
-	}
-
+public class StringComparisonAnalyzer implements Analyzer {
 	/**
 	 * Calculates the source code metrics (loc, noc, nom).
+	 * @param sourceFilepath, the path of the input file
+     * @param sourceFileLocation, web or local
 	 * @return a Map that contains the name and the value of
 	 * each metric analyzed
 	 * @throws IOException
 	 */
 	@Override
-	public Map<String, Integer> calculateMetrics() throws IOException {
+	public Map<String, Integer> calculateMetrics(String sourceFilepath, String sourceFileLocation) throws IOException {
 		SourceFileReaderFactory sfrf = new SourceFileReaderFactory();
-		SourceFileReader sfr = sfrf.initializeSourceFileReader(sourceFilepath, sourceFileLocation);
+		SourceFileReader sfr = sfrf.initializeSourceFileReader(sourceFileLocation);
 		Metric locm = new LOCMetric();
 		Metric nocm = new NOCMetric();
 		Metric nomm = new NOMMetric();
@@ -45,10 +38,10 @@ public class StringComparisonAnalyzer extends Analyzer {
 		loc = noc = nom = -1;
 		Map<String, Integer> metrics = new HashMap<String, Integer>();
 
-		List<String> sourceCodeString = sfr.readFileIntoList();
-		loc = locm.calculateWithStrcomp(sourceCodeString);
-		noc = nocm.calculateWithStrcomp(sourceCodeString);
-		nom = nomm.calculateWithStrcomp(sourceCodeString);	
+		List<String> sourceCodeList = sfr.readFileIntoList(sourceFilepath);
+		loc = locm.calculateWithStrcomp(sourceCodeList);
+		noc = nocm.calculateWithStrcomp(sourceCodeList);
+		nom = nomm.calculateWithStrcomp(sourceCodeList);	
 
 		metrics.put("LOC", loc);
 		metrics.put("NOC", noc);

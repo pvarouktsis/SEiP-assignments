@@ -26,8 +26,8 @@ public class WebFileReaderTest {
   	@Test
 	public void testReadFileIntoListWeb() throws IOException {
     	// reads a web stored file into a List    
-		wfr = new WebFileReader(TEST_CLASS_WEB);
-		List<String> actualList = wfr.readFileIntoList();
+		wfr = new WebFileReader();
+		List<String> actualList = wfr.readFileIntoList(TEST_CLASS_WEB);
 		
 		String[] expected = expectedList.stream().toArray(String[]::new);
 		String[] actual = actualList.stream().toArray(String[]::new);
@@ -38,8 +38,8 @@ public class WebFileReaderTest {
 	@Test
 	public void testReadFileIntoStringWeb() throws IOException {
 		// reads a web stored file into a String
-	    wfr = new WebFileReader(TEST_CLASS_WEB);
-	    String actualString = wfr.readFileIntoString();
+	    wfr = new WebFileReader();
+	    String actualString = wfr.readFileIntoString(TEST_CLASS_WEB);
 	    
 	    String expected = expectedString;
 	    String actual = actualString;

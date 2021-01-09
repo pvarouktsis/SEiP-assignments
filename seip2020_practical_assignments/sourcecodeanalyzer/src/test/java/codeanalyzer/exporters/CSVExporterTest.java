@@ -9,7 +9,7 @@ import org.junit.Test;
 
 public class CSVExporterTest {
   private String outputFilepath = "src/test/resources/output_metrics";
-  private CSVExporter csve = new CSVExporter(outputFilepath);
+  private CSVExporter csve = new CSVExporter();
   	
 	@Test
 	public void testWriteCsv() {
@@ -20,7 +20,7 @@ public class CSVExporterTest {
 		metrics.put("noc",2);
 		
 		// generate and write the output file
-		csve.write(metrics);
+		csve.write(outputFilepath, metrics);
 		
 		// evaluate that the file exists
 		File outputFile = new File(outputFilepath + ".csv");

@@ -12,26 +12,17 @@ import java.util.Map;
  * 
  */
 public class CSVExporter implements Exporter {
-	private String outputFilepath;
-
-	/**
-	 * Initializes the outputFilepath.
-	 * @param outputFilepath, the path of the output file
-	 */
-	public CSVExporter(String outputFilepath) {
-		this.outputFilepath = outputFilepath;
-	}
-
 	/**
 	 * Creates the specified CSV file and writes
 	 * the results of the metrics, appending each time a comma
 	 * to change column. The first row 
 	 * contains the names of the metrics and the second
 	 * the values of them.
+     * @param outputFilepath, the path of the output file
 	 * @param metrics, the metrics (loc, nom, noc)
 	 */
-  public void write(Map<String, Integer> metrics) {
-    File outputFile = new File(outputFilepath + ".csv");
+  	public void write(String outputFilepath, Map<String, Integer> metrics) {
+    	File outputFile = new File(outputFilepath + ".csv");
 		StringBuilder metricsNames = new StringBuilder();
 		StringBuilder metricsValues = new StringBuilder();
 		

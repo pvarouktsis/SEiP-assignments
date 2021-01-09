@@ -14,23 +14,14 @@ import java.util.List;
  * 
  */
 public class LocalFileReader implements SourceFileReader {
-  private String sourceFilepath;
-
-  /**
-   * Initializes the instance variable sourceFilepath.
-   * @param sourceFilepath, the path of the input file
-   */
-  public LocalFileReader(String sourceFilepath) {
-    this.sourceFilepath = sourceFilepath;
-  }
-
   /**
    * Reads a local file and returns its content 
    * in a single String.
+   * @param sourceFilepath, the path of the input file
    * @return a String that contains the contents of the file
    * @throws IOException
    */
-  public String readFileIntoString() throws IOException {
+  public String readFileIntoString(String sourceFilepath) throws IOException {
     StringBuilder sb = new StringBuilder();
     File file = new File(sourceFilepath);
     BufferedReader reader = new BufferedReader(new FileReader(file));
@@ -45,10 +36,11 @@ public class LocalFileReader implements SourceFileReader {
   /**
    * Reads a local file and returns its content
    * in a List.
+   * @param sourceFilepath, the path of the input file
    * @return a List that contains the contents of the file 
    * @throws IOException
    */
-  public List<String> readFileIntoList() throws IOException {
+  public List<String> readFileIntoList(String sourceFilepath) throws IOException {
     List<String> lines = new ArrayList<>();
     File file = new File(sourceFilepath);
     BufferedReader reader = new BufferedReader(new FileReader(file));

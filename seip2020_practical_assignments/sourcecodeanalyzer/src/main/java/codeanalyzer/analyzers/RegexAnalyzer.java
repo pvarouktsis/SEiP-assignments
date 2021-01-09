@@ -17,25 +17,19 @@ import codeanalyzer.metrics.*;
  * @author pvarouktsis
  * 
  */
-public class RegexAnalyzer extends Analyzer {
-
-	/**
-	 * Initializes the necessary parent instances of the RegexAnalyzer.
-	 */
-	public RegexAnalyzer(String sourceFilepath, String sourceFileLocation, String outputFilepath, String outputFileType) {
-		super(sourceFilepath, sourceFileLocation, outputFilepath, outputFileType);
-	}
-
+public class RegexAnalyzer implements Analyzer {
 	/**
 	 * Calculates the source code metrics (loc, noc, nom).
+	 * @param sourceFilepath, the path of the input file
+     * @param sourceFileLocation, web or local
 	 * @return a Map that contains the name and the value of
 	 * each metric analyzed
 	 * @throws IOException
 	 */
 	@Override
-	public Map<String, Integer> calculateMetrics() throws IOException {
+	public Map<String, Integer> calculateMetrics(String sourceFilepath, String sourceFileLocation) throws IOException {
 		SourceFileReaderFactory sfrf = new SourceFileReaderFactory();
-		SourceFileReader sfr = sfrf.initializeSourceFileReader(sourceFilepath, sourceFileLocation);
+		SourceFileReader sfr = sfrf.initializeSourceFileReader(sourceFileLocation);
 		Metric locm = new LOCMetric();
 		Metric nocm = new NOCMetric();
 		Metric nomm = new NOMMetric();
@@ -43,7 +37,7 @@ public class RegexAnalyzer extends Analyzer {
 		loc = noc = nom = -1;
 		Map<String, Integer> metrics = new HashMap<String, Integer>();
 
-		String sourceCodeString = sfr.readFileIntoString();
+		String sourceCodeString = sfr.readFileIntoString(sourceFilepath);
 		loc = locm.calculateWithRegex(sourceCodeString);
 		noc = nocm.calculateWithRegex(sourceCodeString);
 		nom = nomm.calculateWithRegex(sourceCodeString);

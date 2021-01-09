@@ -11,17 +11,16 @@ public class SourceFileReaderFactory {
   /**
    * Initializes the appropriate SourceFileReader
    * object and returns it.
-   * @param sourceFilepath, the path of the input file
    * @param sourceFileLocation, web or local 
    * @return a SourceFileReader object based on the location of the
    * input file (web or url)
    */
-  public SourceFileReader initializeSourceFileReader(String sourceFilepath, String sourceFileLocation) {
+  public SourceFileReader initializeSourceFileReader(String sourceFileLocation) {
     SourceFileReader sfr = null;
     if(sourceFileLocation.equals("local")) {
-      sfr = new LocalFileReader(sourceFilepath);
+      sfr = new LocalFileReader();
     } else if(sourceFileLocation.equals("web")) {
-      sfr = new WebFileReader(sourceFilepath);
+      sfr = new WebFileReader();
     } else {
       throw new IllegalArgumentException("Unknown type: " + sourceFileLocation);
     }
