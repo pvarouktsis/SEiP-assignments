@@ -1,30 +1,39 @@
 #!/bin/bash
 
 # Initialization of variables
-TEST_FILE='verify_outputs.csv'
+SOURCE_FILE='./../seip2020_practical_assignments/sourcecodeanalyzer/src/test/resources/TestClass.java'
+ANALYZER_TYPE='regex'
+SOURCE_FILE_LOCATION='local'
+ACTUAL_OUTPUT_FILEPATH='actual_outputs'
+ACTUAL_OUTPUT_FILETYPE='csv'
 
-# Produce outputs.csv
+ACTUAL_OUTPUTS=$ACTUAL_OUTPUT_FILEPATH'.'$ACTUAL_OUTPUT_FILETYPE
+EXPECTED_OUTPUTS='expected_outputs.csv'
+
+# Produce the actual_outputs.csv
 java -jar ./../seip2020_practical_assignments/sourcecodeanalyzer/target/sourcecodeanalyzer-1.0-SNAPSHOT-jar-with-dependencies.jar \
-./../seip2020_practical_assignments/sourcecodeanalyzer/src/test/resources/TestClass.java \
-regex \
-local \
-outputs \
-csv
+$SOURCE_FILE \
+$ANALYZER_TYPE \
+$SOURCE_FILE_LOCATION \
+$ACTUAL_OUTPUT_FILEPATH \
+$ACTUAL_OUTPUT_FILETYPE
 
-# Produce manually verify_outputs.csv
-echo "LOC,NOC,NOM," > $TEST_FILE
-echo "7,3,3," >> $TEST_FILE
-echo "Manually test file created successfully"
-echo ""
+# Produce manually the expected_outputs.csv
+echo "LOC,NOC,NOM," > $EXPECTED_OUTPUTS
+echo "7,3,3," >> $EXPECTED_OUTPUTS
 
 # Test
-if ["$(diff outputs.csv $TEST_FILE)" == ""]
+if [ "$(diff $ACTUAL_OUTPUTS $EXPECTED_OUTPUTS)" ]
 then
-  echo "[PASSED] Integration Test of Source Code Analyzer"
-else
+  rm $ACTUAL_OUTPUTS
+  rm $EXPECTED_OUTPUTS
+  
   echo "[FAILED] Integration Test of Source Code Analyzer"
+  exit 1
 fi
 
-# Delete produced files
-rm outputs.csv
-rm $TEST_FILE
+rm $ACTUAL_OUTPUTS
+rm $EXPECTED_OUTPUTS
+
+echo "[PASSED] Integration Test of Source Code Analyzer"
+
